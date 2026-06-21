@@ -305,24 +305,28 @@ form input,form textarea{
     border-radius: 6px;
 }
 form .btn2{
+    display: inline-block;
     padding: 14px 60px;
     font-size: 18px;
-    margin-top: 20px;
+    margin: 20px 0;
     cursor: pointer;
 }
 .copyright{
     width: 100%;
     text-align: center;
-    padding: 25px 0;
+    padding: 20px 0;
     background: #262626;
     font-weight: 300;
-    margin-top: 20px;
+    margin-top: 40px;
+}
+#contact{
+    padding-bottom: 0;
 }
 .copyright i{
     color: #ff004f;
 }
 /*------------css for small devices------------------*/
-nav .fas{
+nav .fa-solid{
     display: none;
 }
 
@@ -337,7 +341,7 @@ nav .fas{
     .header-text h1{
         font-size: 30px;
     }
-    nav .fas{
+    nav .fa-solid{
         display: block;
         font-size: 25px;
     }
@@ -356,7 +360,7 @@ nav .fas{
         display: block;
         margin: 25px 0;
     }
-    nav ul .fas{
+    nav ul .fa-solid{
         position: absolute;
         top: 25px;
         right: 25px;
