@@ -14,12 +14,13 @@
             <nav>
                 <img src="images/logo.png" class="logo">
                 <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <span class="menu-label">Navigation</span>
+                    <li><a href="#header" onclick="closemenu()">Home</a></li>
+                    <li><a href="#about" onclick="closemenu()">About</a></li>
+                    <li><a href="#services" onclick="closemenu()">Services</a></li>
+                    <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
+                    <li><a href="#contact" onclick="closemenu()">Contact</a></li>
                 </ul>
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
@@ -192,7 +193,7 @@
                 sidemenu.style.right = "0";
             }
             function closemenu(){
-                sidemenu.style.right = "-200px";
+                sidemenu.style.right = "-100vw";
             }
 
         </script>
