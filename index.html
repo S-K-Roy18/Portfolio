@@ -11,19 +11,23 @@
 <body>
     <div id="header">
         <div class="container">
-            <nav>
+            <nav id="navbar">
                 <img src="images/logo.png" class="logo">
                 <ul id="sidemenu">
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                    <span class="menu-label">Navigation</span>
                     <li><a href="#header" onclick="closemenu()">Home</a></li>
                     <li><a href="#about" onclick="closemenu()">About</a></li>
                     <li><a href="#services" onclick="closemenu()">Services</a></li>
                     <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
                     <li><a href="#contact" onclick="closemenu()">Contact</a></li>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="images/about.png" class="profile-logo">
+                </div>
             </nav>
+            <!-- Mobile overlay backdrop -->
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
             <div class="header-text">
                 <p>Full Stack Developer</p>
                 <h1>Hi, I'm<br><span>Surya</span> Kanta Roy</h1>
@@ -186,16 +190,51 @@
         </script>
 
         <script>
-
             var sidemenu = document.getElementById("sidemenu");
+            var navbar   = document.getElementById("navbar");
+            var overlay  = document.getElementById("navOverlay");
 
-            function openmenu(){
+            /* ── Open / Close menu ── */
+            function openmenu() {
                 sidemenu.style.right = "0";
+                overlay.classList.add("active");
+                document.body.style.overflow = "hidden";
             }
-            function closemenu(){
+            function closemenu() {
                 sidemenu.style.right = "-100vw";
+                overlay.classList.remove("active");
+                document.body.style.overflow = "";
             }
 
+            /* ── Scroll: toggle .scrolled on navbar ── */
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+            });
+
+            /* ── Active link: highlight based on scroll position ── */
+            var sections = document.querySelectorAll("div[id]");
+            var navLinks = document.querySelectorAll("#sidemenu li a");
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(function (link) {
+                            link.classList.remove("active-nav");
+                            if (link.getAttribute("href") === "#" + entry.target.id) {
+                                link.classList.add("active-nav");
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-40% 0px -55% 0px" });
+
+            sections.forEach(function (section) {
+                observer.observe(section);
+            });
         </script>
         <script>
 	const scriptURL = 'https://script.google.com/macros/s/AKfycbyj13dfhxxCkDTlNdiElMQOzwXMljF9rwEcP60ytPTjpXfkL_yRnC1G8SwmrylvAba_6A/exec'
