@@ -64,13 +64,13 @@ nav.scrolled {
 }
 
 .profile-logo{
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
     border-radius:50%;
     object-fit:cover;
     object-position:center;
 
-    padding:2px;
+    padding:1px;
     border:1px solid #6d8cff;
     background:rgba(255,255,255,.06);
 
@@ -426,9 +426,9 @@ nav ul .fa-square-xmark {
     left:50%;
     transform:translateX(-50%);
     width:calc(100% - 24px);
-    height:70px;
+    height:56px;
 
-    padding:0 20px;
+    padding:0 16px;
 
     border-radius:40px;
 
