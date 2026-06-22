@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
 </head>
@@ -15,11 +20,11 @@
                 <img src="images/logo.png" class="logo">
                 <ul id="sidemenu">
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                    <li><a href="#header" onclick="closemenu()">Home</a></li>
-                    <li><a href="#about" onclick="closemenu()">About</a></li>
-                    <li><a href="#services" onclick="closemenu()">Services</a></li>
-                    <li><a href="#portfolio" onclick="closemenu()">Portfolio</a></li>
-                    <li><a href="#contact" onclick="closemenu()">Contact</a></li>
+                    <li><a href="#header" onclick="closemenu()">HOME</a></li>
+                    <li><a href="#about" onclick="closemenu()">ABOUT</a></li>
+                    <li><a href="#services" onclick="closemenu()">SERVICES</a></li>
+                    <li><a href="#portfolio" onclick="closemenu()">PORTFOLIO</a></li>
+                    <li><a href="#contact" onclick="closemenu()">CONTACT</a></li>
                 </ul>
                 <div class="nav-right">
                     <i class="fa-solid fa-bars" onclick="openmenu()"></i>
@@ -29,9 +34,18 @@
             <!-- Mobile overlay backdrop -->
             <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
             <div class="header-text">
-                <p>Full Stack Developer</p>
-                <h1>Hi, I'm<br><span>Surya</span> Kanta Roy</h1>
-            </div>
+    <h2 class="intro">
+    Hi there, myself
+</h2>
+
+<h1 class="name-font">
+    <span class="name-red">Surya</span> Kanta Roy
+</h1>
+
+<p class="role">
+    I create modern full stack experiences from frontend to backend, combining clean design, efficient architecture, and scalable solutions to bring ideas to life.
+</p>
+</div>
         </div>
     </div>
     <!-- -------------about section---------------- -->
@@ -163,7 +177,7 @@
             </div>  
             
                 <div class="copyright">
-                    <p>Copyright © Surya Kanta Roy. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
+                    <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
                 </div>
             </div>
         </div> 

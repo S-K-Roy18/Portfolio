@@ -145,6 +145,45 @@ nav ul li a.active-nav {
 .header-text h1 span{
     color: #ff004f;
 }
+
+.intro{
+    font-family: "Alegreya", serif;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.name-font{
+    font-family: "Risque", serif;
+    font-size: 150px;
+    line-height: 1;
+    margin-bottom: 25px;
+
+    display: inline-block;
+    transform: scale(1.60, 1.55);
+    transform-origin: left center;
+}
+
+.role{
+    font-family: "Alegreya", serif;
+    font-style: italic;
+    font-size: 20px;      /* same size as intro */
+    font-weight: 500;
+    color: rgba(255,255,255,.65);  /* less bright */
+    letter-spacing: 1px;
+    margin-top: 20px;
+    max-width: 700px;   /* limit width */
+    line-height: 1.5;   /* better spacing */
+}
+
+.name-red{
+    color: #ff004f;
+    font-family: inherit;
+}
+
+
 /*-------------about section------------------*/
 #about{
     padding: 80px 0;
@@ -531,6 +570,17 @@ nav ul .fa-square-xmark {
     nav ul li a::after {
         display: none;
     }
+    .intro{
+    font-size: 28px;
+}
+
+.name-font{
+    font-size: 70px;
+}
+
+.role{
+    font-size: 18px;
+}
 
     /* Other responsive adjustments */
     #header {
