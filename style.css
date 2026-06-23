@@ -583,9 +583,11 @@ nav ul .fa-square-xmark {
     }
 
     /* ── HERO SECTION ── */
-    #header {
+    #header{
         background-image: url(images/mobile-bg1.png);
-        background-attachment: scroll;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
     }
     .header-text {
         width: 100%;
