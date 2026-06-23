@@ -19,6 +19,31 @@ body{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    position: relative;   /* anchor for scroll indicator */
+}
+
+/* ── Scroll indicator (home section) ── */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 20px;
+    text-decoration: none;
+    animation: floatUpDown 2.4s ease-in-out infinite;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+}
+.scroll-indicator:hover {
+    color: #ff004f;
+    transform: translateX(-50%) scale(1.15);
+    animation-play-state: paused;
+}
+
+@keyframes floatUpDown {
+    0%,  100% { transform: translateX(-50%) translateY(0); }
+    50%        { transform: translateX(-50%) translateY(-10px); }
 }
 .container{
     padding: 10px 10%;
@@ -876,6 +901,21 @@ nav ul .fa-square-xmark {
     }
     .container {
         padding: 10px 5%;
+    }
+
+    /* Scroll indicator \u2014 bottom left on mobile */
+    .scroll-indicator {
+        left: 8%;
+        transform: none;
+        font-size: 18px;
+        bottom: 18px;
+    }
+    .scroll-indicator:hover {
+        transform: scale(1.15);
+    }
+    @keyframes floatUpDown {
+        0%,  100% { transform: translateY(0); }
+        50%        { transform: translateY(-10px); }
     }
 
     /* Hide Available for Hire box only on mobile */
