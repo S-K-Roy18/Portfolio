@@ -49,7 +49,7 @@
 
     <div class="hero-box location-box">
         <i class="fa-solid fa-location-dot"></i>
-        Kolkata, West Bengal
+        <span>Kolkata, West Bengal</span>
     </div>
 
     <div class="hero-box status-box">
@@ -59,7 +59,7 @@
 
     <a href="images/Surya CV main.pdf" target="_blank" class="btn btn2 hero-cv">
         <i class="fa-solid fa-eye"></i>
-        View CV
+        <span>View CV</span>
     </a>
 
 </div>
@@ -248,7 +248,7 @@
             });
 
             /* ── Active link: highlight based on scroll position ── */
-            var sections = document.querySelectorAll("div[id]");
+            const sections = document.querySelectorAll("section, div[id]");
             var navLinks = document.querySelectorAll("#sidemenu li a");
 
             var observer = new IntersectionObserver(function (entries) {
@@ -262,7 +262,9 @@
                         });
                     }
                 });
-            }, { rootMargin: "-40% 0px -55% 0px" });
+            }, {
+    threshold: 0.3
+});
 
             sections.forEach(function (section) {
                 observer.observe(section);

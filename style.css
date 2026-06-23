@@ -582,6 +582,8 @@ nav ul .fa-square-xmark {
     }
     .intro{
     font-size: 28px;
+    
+    
 }
 
 .name-font{
@@ -633,6 +635,7 @@ nav ul .fa-square-xmark {
 }
 .hero-buttons{
     display:flex;
+    font-family: "Alegreya", serif;
     align-items:center;
     gap:14px;
     margin-top:32px;
@@ -646,22 +649,41 @@ nav ul .fa-square-xmark {
 }
 
 /* Location & Available boxes */
-.hero-box{
-    width:190px;
+.hero-box,
+.hero-cv{
+    width:180px;
     height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
 
     border:1px solid #ff004f;
     border-radius:20px;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
+    font-family:"Alegreya", serif;
+    font-style:italic;
+    font-size:18px;
 
-    font-size:15px;
+    white-space:nowrap;
+}
 
-    background:transparent;
-    transition:.3s;
+.location-box{
+    width:220px;
+}
+
+.status-box{
+    width:180px;
+}
+
+.hero-cv{
+    background:#ff0055;
+}
+
+.hero-box span,
+.hero-cv span{
+    font-family:"Alegreya", serif;
 }
 /* Don't turn red on hover */
 .hero-box:hover{
@@ -681,21 +703,3 @@ nav ul .fa-square-xmark {
     text-align:center;
 }
 
-/* View CV button */
-.hero-cv{
-    width:180px;
-    height:48px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-
-    border-radius:20px;
-    font-size:15px;
-
-    margin:0;            /* remove .btn margin */
-    flex-shrink:0;       /* prevent shrinking */
-
-    white-space: nowrap;   /* prevent line break */
-}
