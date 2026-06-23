@@ -616,20 +616,6 @@ nav ul .fa-square-xmark {
         letter-spacing: 0;
         margin-top: 15px;
     }
-    .hero-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-    margin-top:25px;
-    }
-
-    .hero-buttons{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-}
 
 .hero-buttons .hero-cv{
     background:#ff0055;
@@ -756,16 +742,19 @@ nav ul .fa-square-xmark {
     }
 
     /* Hide Available for Hire box only on mobile */
-.status-box{
-    display:none;
-}
+    .status-box{
+        display:none !important;
+    }
 
 /* Align buttons to left */
 .hero-buttons{
+    display:flex;
+    flex-direction:column;
     align-items:flex-start;
+    gap:15px;
+    margin-top:20px;
     margin-left:0;
 }
-
 /* Smaller location and CV boxes */
 .hero-buttons .location-box,
 .hero-buttons .hero-cv{
@@ -781,13 +770,26 @@ nav ul .fa-square-xmark {
 
     font-size:12px;
     gap:10px;
+
+     transform:translateX(-110px);
+     margin-top:-15px;
     }
 
     /* Remove automatic centering from .btn */
     .hero-buttons .hero-cv{
+        width:150px;
+        height:40px;
+
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+
+        padding-left:20px;
+        gap:6px;          /* controls icon-text gap */
+
+        margin-top:-15px !important;
         margin:0 !important;
     }
-
     /* Shift everything further left */
     .location-box,
     .hero-cv{
