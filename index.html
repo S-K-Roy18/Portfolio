@@ -227,13 +227,20 @@
             var overlay  = document.getElementById("navOverlay");
 
             /* ── Open / Close menu ── */
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
             function openmenu() {
+                if (!isMobile()) return;
                 sidemenu.style.right = "0";
                 overlay.classList.add("active");
                 document.body.style.overflow = "hidden";
             }
             function closemenu() {
-                sidemenu.style.right = "-100vw";
+                /* Remove the inline style — CSS takes over:
+                   mobile: right:-100vw (hidden by default)
+                   desktop: ul has no fixed positioning, always visible */
+                sidemenu.style.right = "";
                 overlay.classList.remove("active");
                 document.body.style.overflow = "";
             }
