@@ -38,11 +38,16 @@ nav{
     padding:0 8%;
     z-index:9999;
 
-    background:rgba(8,8,18,.55);
-    backdrop-filter:blur(20px);
+    background:rgba(18,18,25,.28);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
-    box-shadow:0 1px 0 rgba(255,255,255,.05);
+backdrop-filter: blur(35px);
+-webkit-backdrop-filter: blur(35px);
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+box-shadow:
+0 8px 32px rgba(0,0,0,.35),
+inset 0 1px 1px rgba(255,255,255,.08);
 }
 
 nav.scrolled {
@@ -71,7 +76,11 @@ nav.scrolled {
     object-position:center;
 
     padding:1px;
-    border:1px solid #6d8cff;
+    border:1px solid rgba(109,140,255,.8);
+
+    box-shadow:
+    0 0 10px rgba(109,140,255,.25),
+    inset 0 0 8px rgba(255,255,255,.1);
     background:rgba(255,255,255,.06);
 
     display:block;
@@ -137,6 +146,7 @@ nav ul li a.active-nav {
 .header-text{
     margin-top: 20%;
     font-size: 30px;
+    width:55%;
 }
 .header-text h1{
     font-size: 60px;
@@ -620,4 +630,72 @@ nav ul .fa-square-xmark {
     color: #61b547;
     margin-top: -40px;
     display: block;
+}
+.hero-buttons{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:32px;
+
+    flex-wrap:nowrap;
+
+    width:fit-content;
+}
+.hero-buttons .btn{
+    margin:0;      /* override .btn's margin:50px auto 0 */
+}
+
+/* Location & Available boxes */
+.hero-box{
+    width:190px;
+    height:48px;
+
+    border:1px solid #ff004f;
+    border-radius:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    font-size:15px;
+
+    background:transparent;
+    transition:.3s;
+}
+/* Don't turn red on hover */
+.hero-box:hover{
+    background:transparent;
+    color:#fff;
+}
+
+/* Available box fixed size */
+.status-box{
+    width:180px;
+    height:48px;
+}
+
+/* Prevent shrinking when text changes */
+#status-text{
+    width:120px;
+    text-align:center;
+}
+
+/* View CV button */
+.hero-cv{
+    width:180px;
+    height:48px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    border-radius:20px;
+    font-size:15px;
+
+    margin:0;            /* remove .btn margin */
+    flex-shrink:0;       /* prevent shrinking */
+
+    white-space: nowrap;   /* prevent line break */
 }

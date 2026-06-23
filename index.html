@@ -45,6 +45,24 @@
 <p class="role">
     I create modern full stack experiences from frontend to backend, combining clean design, efficient architecture, and scalable solutions to bring ideas to life.
 </p>
+<div class="hero-buttons">
+
+    <div class="hero-box location-box">
+        <i class="fa-solid fa-location-dot"></i>
+        Kolkata, West Bengal
+    </div>
+
+    <div class="hero-box status-box">
+        <i class="fa-regular fa-circle-dot status-icon"></i>
+        <span id="status-text">Available for Hire</span>
+    </div>
+
+    <a href="images/Surya CV main.pdf" target="_blank" class="btn btn2 hero-cv">
+        <i class="fa-solid fa-eye"></i>
+        View CV
+    </a>
+
+</div>
 </div>
         </div>
     </div>
@@ -268,6 +286,29 @@
             })
 			.catch(error => console.error('Error!', error.message))
 	})
+</script>
+<script>
+const statusBox = document.querySelector(".status-box");
+const statusText = document.getElementById("status-text");
+const statusIcon = document.querySelector(".status-icon");
+
+statusBox.addEventListener("mouseenter", () => {
+    const time = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    statusText.innerHTML = new Date().toLocaleTimeString([],{
+    hour:'2-digit',
+    minute:'2-digit'
+    });
+    statusIcon.className = "fa-solid fa-clock";
+});
+
+statusBox.addEventListener("mouseleave", () => {
+    statusText.innerHTML = "Available for Hire";
+    statusIcon.className = "fa-regular fa-circle-dot status-icon";
+});
 </script>
 </body>
 </html>
