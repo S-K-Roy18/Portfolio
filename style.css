@@ -10,6 +10,7 @@ html{
 body{
     background: #080808;
     color: #fff;
+    overflow-x: hidden;
 }
 #header{
     width: 100%;
@@ -498,7 +499,7 @@ nav ul .fa-square-xmark {
     }
 
     .logo {
-        width: 95px;
+        width: 90px;
     }
 
     /* Hamburger icon */
@@ -524,13 +525,13 @@ nav ul .fa-square-xmark {
         top: 0;
         right: -100vw;
         width: 72%;
-        max-width: 280px;
+        max-width: 260px;
         height: 100vh;
         z-index: 9999;
         padding: 0;
         display: flex;
         flex-direction: column;
-        background: rgba(8, 8, 20, 0.88);
+        background: rgba(8, 8, 20, 0.92);
         backdrop-filter: blur(28px);
         -webkit-backdrop-filter: blur(28px);
         border-left: 1px solid rgba(255, 255, 255, 0.08);
@@ -580,52 +581,217 @@ nav ul .fa-square-xmark {
     nav ul li a::after {
         display: none;
     }
-    .intro{
-    font-size: 28px;
-    
-    
-}
 
-.name-font{
-    font-size: 70px;
-}
-
-.role{
-    font-size: 18px;
-}
-
-    /* Other responsive adjustments */
+    /* ── HERO SECTION ── */
     #header {
-        background-image: url(images/mobile-bg.png);
+        background-image: url(images/mobile-bg1.png);
+        background-attachment: scroll;
     }
     .header-text {
-        margin-top: 100%;
+        width: 100%;
+        margin-top: 80px;
+        padding: 0;
+    }
+    .intro {
         font-size: 16px;
+        margin-bottom: 4px;
     }
-    .header-text h1 {
-        font-size: 30px;
+    .name-font {
+        display: block;          /* must be block so long name wraps */
+        font-size: 72px;
+        transform: none;         /* kill the huge scale(1.60,1.55) */
+        transform-origin: unset;
+        line-height: 0.95;
+        margin-bottom: 5px;
+        white-space: normal;
+        word-break: break-word;
+        max-width: 100%;
+        overflow: visible;
     }
-    .sub-title {
-        font-size: 40px;
+    .role {
+        width: 58%;
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 100%;
+        letter-spacing: 0;
+        margin-top: 15px;
     }
-    .about-col-1, .about-col-2 {
+    .hero-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:25px;
+    }
+
+    .hero-buttons{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.hero-buttons .hero-cv{
+    background:#ff0055;
+}
+    
+
+    /* ── ABOUT SECTION ── */
+    #about {
+        padding: 60px 0 40px;
+    }
+    .about-col-1,
+    .about-col-2 {
         flex-basis: 100%;
     }
     .about-col-1 {
-        margin-bottom: 30px;
+        margin-bottom: 24px;
     }
-    .abot-col-2 {
-        font-size: 14px;
+    .about-col-1 img {
+        width: 75%;
+        display: block;
+        margin: 0 auto;
+    }
+    .sub-title {
+        font-size: 36px;
+    }
+    .tab-titles {
+        margin: 16px 0 28px;
+        flex-wrap: wrap;
+        gap: 8px;
     }
     .tab-links {
-        margin-right: 20px;
-        font-size: 16px;
+        margin-right: 0;
+        font-size: 15px;
     }
-    .contact-left, .contact-right {
-        flex-basis: 100%;
-    }
-    .copyright {
+    .tab-contents ul li {
         font-size: 14px;
+    }
+    .tab-contents ul li span {
+        font-size: 15px;
+    }
+
+    /* ── SERVICES SECTION ── */
+    #services {
+        padding: 40px 0;
+    }
+    .services-list {
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
+        margin-top: 24px;
+    }
+    .services-list div {
+        padding: 26px 20px;
+    }
+    .services-list div i {
+        font-size: 34px;
+        margin-bottom: 14px;
+    }
+    .services-list div h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* ── PORTFOLIO SECTION ── */
+    #portfolio {
+        padding: 40px 0;
+    }
+    .work-list {
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
+        margin-top: 24px;
+    }
+    .btn {
+        padding: 12px 36px;
+        font-size: 14px;
+        margin-top: 30px;
+    }
+
+    /* ── CONTACT SECTION ── */
+    #contact .container {
+        flex-direction: column;
+    }
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%;
+        width: 100%;
+    }
+    .contact-left {
+        margin-bottom: 28px;
+    }
+    .contact-left p {
+        font-size: 14px;
+        margin-top: 18px;
+        word-break: break-all;
+    }
+    .contact-left p i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+    .social-icons a {
+        font-size: 26px;
+        margin-right: 12px;
+    }
+    form input,
+    form textarea {
+        font-size: 15px;
+        padding: 12px;
+        margin: 10px 0;
+    }
+    form .btn2 {
+        padding: 12px 40px;
+        font-size: 15px;
+    }
+
+    /* ── MISC ── */
+    .copyright {
+        font-size: 13px;
+        padding: 16px 12px;
+    }
+    .container {
+        padding: 10px 5%;
+    }
+
+    /* Hide Available for Hire box only on mobile */
+.status-box{
+    display:none;
+}
+
+/* Align buttons to left */
+.hero-buttons{
+    align-items:flex-start;
+    margin-left:0;
+}
+
+/* Smaller location and CV boxes */
+.hero-buttons .location-box,
+.hero-buttons .hero-cv{
+    width:150px;
+    height:40px;
+
+    margin:0;
+    padding-left:16px;
+
+    justify-content:flex-start;
+
+    border-radius:16px;
+
+    font-size:12px;
+    gap:10px;
+    }
+
+    /* Remove automatic centering from .btn */
+    .hero-buttons .hero-cv{
+        margin:0 !important;
+    }
+
+    /* Shift everything further left */
+    .location-box,
+    .hero-cv{
+        transform: translateX(-10px);
     }
 }
 #msg{
@@ -639,10 +805,6 @@ nav ul .fa-square-xmark {
     align-items:center;
     gap:14px;
     margin-top:32px;
-
-    flex-wrap:nowrap;
-
-    width:fit-content;
 }
 .hero-buttons .btn{
     margin:0;      /* override .btn's margin:50px auto 0 */
