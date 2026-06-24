@@ -532,10 +532,12 @@ nav ul .fa-square-xmark {
     -webkit-backdrop-filter: blur(6px) saturate(120%);
     z-index: 998;
     opacity: 0;
+    pointer-events: none;   /* never block taps when invisible */
     transition: opacity 0.35s ease;
 }
 .nav-overlay.active {
     opacity: 1;
+    pointer-events: auto;   /* only intercept taps when menu is open */
 }
 
 @media only screen and (max-width: 768px) {
