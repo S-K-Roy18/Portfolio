@@ -29,7 +29,7 @@ body{
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.55);
-    font-size: 38px;
+    font-size: 28px;
     text-decoration: none;
     animation: floatUpDown 2.4s ease-in-out infinite;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -654,10 +654,12 @@ nav ul .fa-square-xmark {
     -webkit-backdrop-filter: blur(6px) saturate(120%);
     z-index: 998;
     opacity: 0;
+    pointer-events: none;   /* ← FIX: don't block taps when invisible */
     transition: opacity 0.35s ease;
 }
 .nav-overlay.active {
     opacity: 1;
+    pointer-events: auto;   /* ← allow taps only when menu is open */
 }
 
 @media only screen and (max-width: 768px) {
@@ -1046,7 +1048,7 @@ nav ul .fa-square-xmark {
     .scroll-indicator {
         left: 8%;
         transform: none;
-        font-size: 30px;
+        font-size: 20px;
         bottom: 30px;
     }
     .scroll-indicator:hover {
@@ -1239,3 +1241,27 @@ nav ul .fa-square-xmark {
     text-align:center;
 }
 
+/* About section onwards */
+#about,
+#about *,
+#services,
+#services *,
+#portfolio,
+#portfolio *,
+#contact,
+#contact *{
+    font-family: 'Lora', serif;
+}
+
+.sub-title{
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+.tab-links,
+.services-list h2,
+.layer h3,
+.contact-left h1{
+    font-family: 'Lora', serif;
+    font-weight: 600;
+}
