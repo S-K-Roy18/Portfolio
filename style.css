@@ -940,6 +940,23 @@ nav ul .fa-square-xmark {
     .tab-contents ul li span {
         font-size: 15px;
     }
+    .row{
+    flex-direction:column;
+    gap:30px;
+}
+
+.about-col-1,
+.about-col-2{
+    flex-basis:100%;
+    width:100%;
+}
+.about-col-2{
+    order:1;
+}
+
+.about-col-1{
+    order:2;
+}
 
     /* ── SERVICES SECTION ── */
     #services {
@@ -1103,15 +1120,43 @@ nav ul .fa-square-xmark {
     .card-gallery {
         height: 420px;
     }
-    .gallery-card {
-        height: 350px;
+    .gallery-card{
+    left:12px;
+    width:calc(100% - 24px);
+
+    height:350px;
+
+    border-radius:28px;
+    overflow:hidden;
+}
+.gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:28px;
+}
+
+    .gallery-card.card-prev{
+        transform: translateY(calc(-50% - 180px)) scale(0.92);
     }
-    .gallery-card.card-prev {
-        transform: translateY(calc(-50% - 180px)) scale(0.86);
+
+    .gallery-card.card-next{
+        transform: translateY(calc(-50% + 180px)) scale(0.92);
     }
-    .gallery-card.card-next {
-        transform: translateY(calc(-50% + 180px)) scale(0.86);
-    }
+    .card-gallery-wrap{
+    max-width:100%;
+    padding:0;
+
+    background:transparent;
+    backdrop-filter:none;
+
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:28px;
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+}
     .card-dots {
         flex-direction: row;
         gap: 8px;
