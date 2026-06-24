@@ -46,7 +46,7 @@ body{
     50%        { transform: translateX(-50%) translateY(-10px); }
 }
 .container{
-    padding: 10px 10%;
+    padding: 10px 7%;
 }
 
 /* ============================================================
@@ -262,14 +262,14 @@ nav ul li a::after { display: none; }
 
 /*-------------about section------------------*/
 #about{
-    padding: 80px 0;
+    padding: 64px 0 44px;
     color: #ababab;
 }
 .row{
     display: flex;
     justify-content: space-between;
     flex-wrap:nowrap;
-    gap:60px;
+    gap:14px;
 }
 
 .about-col-1 {
@@ -401,22 +401,22 @@ nav ul li a::after { display: none; }
 }
 
 .about-col-2{
-    flex-basis: 52%;
+    flex-basis: 55%;
 }
 
 .sub-title{
-    font-size: 60px;
+    font-size: 52px;
     font-weight: 600;
     color: #fff;
 }
 
 .tab-titles{
     display: flex;
-    margin: 20px 0 40px;
+    margin: 14px 0 22px;
 }
 .tab-links{
-    margin-right: 50px;
-    font-size: 18px;
+    margin-right: 36px;
+    font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -436,11 +436,12 @@ nav ul li a::after { display: none; }
 }
 .tab-contents ul li{
     list-style: none;
-    margin: 10px 0;
+    margin: 8px 0;
+    font-size: 13.5px;
 }
 .tab-contents ul li span{
     color: #b54769;
-    font-size: 18px;
+    font-size: 15px;
 }
 .tab-contents{
     display: none;
@@ -449,7 +450,204 @@ nav ul li a::after { display: none; }
     display: block;
 }
 
-/*-------------services section------------------*/
+/* ============================================================
+   ABOUT — INFO ROW (tabs left + tech stack right)
+   ============================================================ */
+.about-intro {
+    margin-bottom: 16px;
+    line-height: 1.62;
+    font-size: 14px;
+    color: #ababab;
+}
+
+.about-info-row {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-top: 4px;
+}
+
+/* Left: Experience / Education tabs */
+.tabs-panel {
+    flex: 0 0 50%;
+    min-width: 0;
+}
+
+/* Right: Tech Stack container */
+.tech-stack-panel {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 16px;
+    padding: 16px 14px 12px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.07),
+        0 8px 32px rgba(0,0,0,0.28);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    overflow: hidden;
+}
+
+.tech-panel-title {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+}
+
+.tech-group-label {
+    font-family: 'Lora', serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #ff004f;
+    margin: 10px 0 6px;
+}
+
+.tech-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tech-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 9px 4px 6px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.05);
+    cursor: default;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.tech-chip:hover {
+    border-color: rgba(255,0,79,0.45);
+    background: rgba(255,0,79,0.10);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,0,79,0.15);
+}
+.tech-chip img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+.tech-chip img.icon-invert {
+    filter: invert(1) brightness(0.85);
+}
+.tech-chip-icon {
+    font-size: 14px;
+    color: #ff004f;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.tech-chip span {
+    font-family: 'Lora', serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #d0d0d0;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   ABOUT — SERVICES STRIP
+   ============================================================ */
+.about-services-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.about-service-card {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    padding: 18px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        0 4px 20px rgba(0,0,0,0.25);
+}
+.about-service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,0,79,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s;
+    pointer-events: none;
+}
+.about-service-card:hover {
+    border-color: rgba(255,0,79,0.40);
+    background: rgba(255,0,79,0.06);
+    transform: translateY(-5px);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        0 12px 36px rgba(255,0,79,0.15),
+        0 4px 16px rgba(0,0,0,0.30);
+}
+.about-service-card:hover::before {
+    opacity: 1;
+}
+
+.svc-icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255,0,79,0.12);
+    border: 1px solid rgba(255,0,79,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+.about-service-card:hover .svc-icon-wrap {
+    background: rgba(255,0,79,0.22);
+    box-shadow: 0 0 16px rgba(255,0,79,0.25);
+}
+.svc-icon-wrap i {
+    font-size: 16px;
+    color: #ff004f;
+}
+
+.about-service-card h4 {
+    font-family: 'Lora', serif;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+.about-service-card p {
+    font-family: 'Lora', serif;
+    font-size: 11.5px;
+    color: #999;
+    line-height: 1.5;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+
 #services{
     padding: 30px 0;
 }
@@ -942,6 +1140,41 @@ nav ul .fa-square-xmark {
     .tab-contents ul li span {
         font-size: 15px;
     }
+
+    /* About info row — stack vertically on mobile */
+    .about-info-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .tabs-panel {
+        flex: none;
+        width: 100%;
+    }
+    .tech-stack-panel {
+        flex: none;
+        width: 100%;
+    }
+    .tech-chip span {
+        display: none; /* show icons only on very small screens to save space */
+    }
+    .tech-chip {
+        padding: 6px 8px;
+    }
+    .tech-chip img {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Services strip — stack vertically on mobile */
+    .about-services-strip {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    .about-service-card {
+        padding: 16px 14px;
+    }
+
     .row{
     flex-direction:column;
     gap:30px;

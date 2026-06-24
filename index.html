@@ -101,35 +101,160 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>I am a Full Stack Developer specializing in the MERN stack, passionate about building scalable, user-centric web applications. I enjoy transforming ideas into real-world products through clean architecture, efficient code, and modern UI/UX principles. Constantly learning and adapting, I strive to create solutions that are both functional and impactful.</p>
+                    <p class="about-intro">I am a Full Stack Developer specializing in the MERN stack, passionate about building scalable, user-centric web applications. I enjoy transforming ideas into real-world products through clean architecture, efficient code, and modern UI/UX principles. Constantly learning and adapting, I strive to create solutions that are both functional and impactful.</p>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>UI?UX</span><br>Designing Web interfaces</li>
-                            <li><span>Front-End</span><br>React, Redux, HTML, CSS, JavaScript</li>
-                            <li><span>Back-End</span><br>Node.js, Express.js,
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>UI?UX</span><br>Designing Web interfaces</li>
-                            <li><span>Front-End</span><br>React, Redux, HTML, CSS, JavaScript</li>
-                            <li><span>Back-End</span><br>Node.js, Express.js,
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>UI?UX</span><br>Designing Web interfaces</li>
-                            <li><span>Front-End</span><br>React, Redux, HTML, CSS, JavaScript</li>
-                            <li><span>Back-End</span><br>Node.js, Express.js,
-                        </ul>
-                    </div>
-                </div> 
+                    <!-- Info Row: Tabs (left) + Tech Stack (right) -->
+                    <div class="about-info-row">
+
+                        <!-- Experience / Education Tabs -->
+                        <div class="tabs-panel">
+                            <div class="tab-titles">
+                                <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
+                                <p class="tab-links" onclick="opentab('education')">Education</p>
+                            </div>
+                            <div class="tab-contents active-tab" id="experience">
+                                <ul>
+                                    <li><span>Full Stack Developer</span><br>MERN Stack — Personal & Freelance Projects (2023 – Present)</li>
+                                    <li><span>Frontend Development</span><br>React.js, Redux, Tailwind CSS, Responsive Design</li>
+                                    <li><span>Backend Development</span><br>Node.js, Express.js, REST APIs, MongoDB</li>
+                                    <li><span>UI/UX Design</span><br>Figma — Wireframes, Prototypes & Design Systems</li>
+                                </ul>
+                            </div>
+                            <div class="tab-contents" id="education">
+                                <ul>
+                                    <li><span>B.Sc. Computer Science</span><br>Currently Pursuing — West Bengal, India</li>
+                                    <li><span>Full Stack Web Dev</span><br>Self-taught via Udemy, FreeCodeCamp & MDN (2022 – 2023)</li>
+                                    <li><span>UI/UX Design Basics</span><br>Figma & Design Principles — Online Courses (2023)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Tech Stack Panel -->
+                        <div class="tech-stack-panel">
+                            <h3 class="tech-panel-title">Tech Stack</h3>
+
+                            <p class="tech-group-label">Core Stack</p>
+                            <div class="tech-chips">
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js">
+                                    <span>React.js</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="icon-invert">
+                                    <span>Next.js</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+                                    <span>TypeScript</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                                    <span>HTML5</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                                    <span>CSS3</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS">
+                                    <span>Tailwind CSS</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                                    <span>Node.js</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="icon-invert">
+                                    <span>Express.js</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                                    <span>MongoDB</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="REST API">
+                                    <span>REST API</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <i class="fa-solid fa-key tech-chip-icon"></i>
+                                    <span>JWT</span>
+                                </div>
+                            </div>
+
+                            <p class="tech-group-label">Other Stack</p>
+                            <div class="tech-chips">
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                                    <span>MySQL</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                                    <span>Git</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon-invert">
+                                    <span>GitHub</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman">
+                                    <span>Postman</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                                    <span>VS Code</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                                    <span>Figma</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel" class="icon-invert">
+                                    <span>Vercel</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/render/render-original.svg" alt="Render">
+                                    <span>Render</span>
+                                </div>
+                                <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg" alt="Netlify">
+                                    <span>Netlify</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- /about-info-row -->
+
+                    <!-- Services Strip -->
+                    <div class="about-services-strip">
+                        <div class="about-service-card" id="svc-web">
+                            <div class="svc-icon-wrap">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>Web Development</h4>
+                            <p>Full-stack web apps built with the MERN stack — fast, scalable & responsive.</p>
+                        </div>
+                        <div class="about-service-card" id="svc-app">
+                            <div class="svc-icon-wrap">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <h4>App Development</h4>
+                            <p>Cross-platform mobile experiences with clean UI and smooth performance.</p>
+                        </div>
+                        <div class="about-service-card" id="svc-uiux">
+                            <div class="svc-icon-wrap">
+                                <i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                            <h4>UI / UX Design</h4>
+                            <p>Intuitive interfaces crafted in Figma — from wireframes to polished prototypes.</p>
+                        </div>
+                    </div><!-- /about-services-strip -->
+
+                </div>
+
             </div>
         </div>
 
