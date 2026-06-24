@@ -75,8 +75,29 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/about.png">
-                </div> 
+                    <div class="card-gallery-wrap">
+                        <div class="card-gallery" id="cardGallery">
+                            <div class="gallery-card" data-index="0">
+                                <img src="images/about.png" alt="About Me">
+                            </div>
+                            <div class="gallery-card" data-index="1">
+                                <img src="images/hindu.jpg" alt="Culture">
+                            </div>
+                            <div class="gallery-card" data-index="2">
+                                <img src="images/photography.png" alt="Photography">
+                            </div>
+                            <div class="gallery-card" data-index="3">
+                                <img src="images/sports.png" alt="Sports">
+                            </div>
+                            <div class="gallery-card" data-index="4">
+                                <img src="images/drawing.png" alt="Drawing">
+                            </div>
+                            <div class="gallery-card" data-index="5">
+                                <img src="images/dedict.png" alt="Dedication">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p>I am a Full Stack Developer specializing in the MERN stack, passionate about building scalable, user-centric web applications. I enjoy transforming ideas into real-world products through clean architecture, efficient code, and modern UI/UX principles. Constantly learning and adapting, I strive to create solutions that are both functional and impactful.</p>
@@ -322,6 +343,69 @@ statusBox.addEventListener("mouseleave", () => {
     statusText.innerHTML = "Available for Hire";
     statusIcon.className = "fa-regular fa-circle-dot status-icon";
 });
+</script>
+
+<script>
+/* ============================================================
+   WHEEL / TOUCH CARD GALLERY ENGINE
+   ============================================================ */
+(function () {
+    const gallery  = document.getElementById('cardGallery');
+    if (!gallery) return;
+
+    const cards = Array.from(gallery.querySelectorAll('.gallery-card'));
+    const TOTAL = cards.length;
+    let current = 0;
+
+    /* ── Assign CSS class based on position relative to active ── */
+    function getStateClass(i, active) {
+
+    if (i === active) return 'card-active';
+
+    const prev = (active - 1 + TOTAL) % TOTAL;
+    const next = (active + 1) % TOTAL;
+
+    if (i === prev) return 'card-prev';
+    if (i === next) return 'card-next';
+
+    return i < active ? 'card-far-prev' : 'card-far-next';
+}
+
+    function updateCards(idx) {
+        cards.forEach((card, i) => {
+            card.className = 'gallery-card ' + getStateClass(i, idx);
+        });
+        current = idx;
+    }
+
+    function goTo(idx) {
+    idx = (idx + TOTAL) % TOTAL;
+    updateCards(idx);
+}
+    /* ── Mouse wheel (desktop) ── */
+    let wheelLock = false;
+    gallery.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (wheelLock) return;
+        wheelLock = true;
+        goTo(current + (e.deltaY > 0 ? 1 : -1));
+        setTimeout(() => { wheelLock = false; }, 520);
+    }, { passive: false });
+
+    /* ── Touch swipe (mobile) ── */
+    let touchY = 0;
+    gallery.addEventListener('touchstart', (e) => {
+        touchY = e.touches[0].clientY;
+    }, { passive: true });
+
+    gallery.addEventListener('touchend', (e) => {
+        const dy = touchY - e.changedTouches[0].clientY;
+        if (Math.abs(dy) > 40) goTo(current + (dy > 0 ? 1 : -1));
+    }, { passive: true });
+
+    /* ── Init ── */
+    updateCards(0);
+})();
 </script>
 </body>
 </html>

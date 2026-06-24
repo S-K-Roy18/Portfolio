@@ -25,11 +25,11 @@ body{
 /* ── Scroll indicator (home section) ── */
 .scroll-indicator {
     position: absolute;
-    bottom: 20px;
+    bottom: 2px;
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.55);
-    font-size: 20px;
+    font-size: 38px;
     text-decoration: none;
     animation: floatUpDown 2.4s ease-in-out infinite;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -268,18 +268,140 @@ nav ul li a::after { display: none; }
 .row{
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap:nowrap;
+    gap:60px;
 }
 
-.about-col-1{
-    flex-basis: 35%;
+.about-col-1 {
+    flex-basis: 42%;
 }
-.about-col-1 img{
+
+/* ============================================================
+   WHEEL-DRIVEN CARD GALLERY
+   ============================================================ */
+.card-gallery-wrap {
+    position: relative;
     width: 100%;
-    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    border-radius: 28px;
+    padding: 10px 0;
+    max-width:420px;
+    margin:0 auto;
+    /* Subtle glass outline ring */
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+        0 8px 40px rgba(0, 0, 0, 0.30);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
+
+/* Tall clipping window with fade mask for peek effect */
+.card-gallery {
+    position: relative;
+    width: 100%;
+    height: 620px;
+    cursor: ns-resize;
+    /* Fade top & bottom — blurry peek of adjacent cards */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.55) 9%,
+        black 18%,
+        black 82%,
+        rgba(0,0,0,0.55) 91%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.55) 9%,
+        black 18%,
+        black 82%,
+        rgba(0,0,0,0.55) 91%,
+        transparent 100%
+    );
+}
+
+/* Every card sits in the same slot, absolutely stacked */
+.gallery-card {
+    position: absolute;
+    left: 18px;
+    width:calc(100% - 36px);
+    top: 50%;
+    height: 540px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow:
+        0 24px 64px rgba(0,0,0,0.55),
+        0 4px 16px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    /* Default: hidden below */
+    opacity: 0;
+    transform: translateY(calc(-50% + 120px)) scale(0.88);
+    filter: blur(6px);
+    pointer-events: none;
+    transition:
+        transform  0.52s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity    0.42s ease,
+        filter     0.42s ease;
+    will-change: transform, opacity, filter;
+    z-index: 1;
+}
+
+.gallery-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:22px;
+}
+/* ── Card states ── */
+
+/* Active card — center stage */
+.gallery-card.card-active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+    z-index: 10;
+}
+
+/* Card just above active (peek from top) */
+.gallery-card.card-prev {
+    opacity: 0.90;
+    transform: translateY(calc(-50% - 200px)) scale(0.80);
+    filter: blur(1px);
+    z-index: 7;
+}
+
+/* Card just below active (peek from bottom) */
+.gallery-card.card-next {
+    opacity: 0.90;
+    transform: translateY(calc(-50% + 300px)) scale(0.80);
+    filter: blur(1px);
+    z-index: 7;
+}
+
+/* Hidden cards further away */
+.gallery-card.card-far-prev {
+    opacity: 0;
+    transform: translateY(calc(-50% - 280px)) scale(0.80);
+    z-index: 4;
+}
+.gallery-card.card-far-next {
+    opacity: 0;
+    transform: translateY(calc(-50% + 280px)) scale(0.80);
+    z-index: 4;
+}
+
 .about-col-2{
-    flex-basis: 60%;
+    flex-basis: 52%;
 }
 
 .sub-title{
@@ -532,12 +654,10 @@ nav ul .fa-square-xmark {
     -webkit-backdrop-filter: blur(6px) saturate(120%);
     z-index: 998;
     opacity: 0;
-    pointer-events: none;   /* never block taps when invisible */
     transition: opacity 0.35s ease;
 }
 .nav-overlay.active {
     opacity: 1;
-    pointer-events: auto;   /* only intercept taps when menu is open */
 }
 
 @media only screen and (max-width: 768px) {
@@ -909,8 +1029,8 @@ nav ul .fa-square-xmark {
     .scroll-indicator {
         left: 8%;
         transform: none;
-        font-size: 18px;
-        bottom: 18px;
+        font-size: 30px;
+        bottom: 30px;
     }
     .scroll-indicator:hover {
         transform: scale(1.15);
@@ -974,7 +1094,35 @@ nav ul .fa-square-xmark {
     .hero-cv{
         transform: translateX(-10px);
     }
+
+    /* ── CARD GALLERY — mobile ── */
+    .about-col-1 {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    .card-gallery {
+        height: 420px;
+    }
+    .gallery-card {
+        height: 350px;
+    }
+    .gallery-card.card-prev {
+        transform: translateY(calc(-50% - 180px)) scale(0.86);
+    }
+    .gallery-card.card-next {
+        transform: translateY(calc(-50% + 180px)) scale(0.86);
+    }
+    .card-dots {
+        flex-direction: row;
+        gap: 8px;
+    }
+    .card-dot.active {
+        height: 6px;
+        width: 20px;
+        border-radius: 4px;
+    }
 }
+
 #msg{
     color: #61b547;
     margin-top: -40px;
