@@ -607,6 +607,13 @@ nav ul li a::after { display: none; }
     opacity: 1;
 }
 
+.svc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
 .svc-icon-wrap {
     width: 38px;
     height: 38px;
@@ -1128,7 +1135,7 @@ nav ul .fa-square-xmark {
     .tab-titles {
         margin: 16px 0 28px;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 32px;
     }
     .tab-links {
         margin-right: 0;

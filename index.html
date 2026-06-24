@@ -23,8 +23,7 @@
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
                     <li><a href="#header" onclick="closemenu()">HOME</a></li>
                     <li><a href="#about" onclick="closemenu()">ABOUT</a></li>
-                    <li><a href="#services" onclick="closemenu()">SERVICES</a></li>
-                    <li><a href="#portfolio" onclick="closemenu()">PORTFOLIO</a></li>
+                    <li><a href="#portfolio" onclick="closemenu()">WORK</a></li>
                     <li><a href="#contact" onclick="closemenu()">CONTACT</a></li>
                 </ul>
                 <div class="nav-right">
@@ -109,10 +108,10 @@
                         <!-- Experience / Education Tabs -->
                         <div class="tabs-panel">
                             <div class="tab-titles">
-                                <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
-                                <p class="tab-links" onclick="opentab('education')">Education</p>
+                                <p class="tab-links active-link" onclick="opentab('education')">Education</p>
+                                <p class="tab-links" onclick="opentab('experience')">Experience</p>
                             </div>
-                            <div class="tab-contents active-tab" id="experience">
+                            <div class="tab-contents" id="experience">
                                 <ul>
                                     <li><span>Full Stack Developer</span><br>MERN Stack — Personal & Freelance Projects (2023 – Present)</li>
                                     <li><span>Frontend Development</span><br>React.js, Redux, Tailwind CSS, Responsive Design</li>
@@ -120,7 +119,7 @@
                                     <li><span>UI/UX Design</span><br>Figma — Wireframes, Prototypes & Design Systems</li>
                                 </ul>
                             </div>
-                            <div class="tab-contents" id="education">
+                            <div class="tab-contents active-tab" id="education">
                                 <ul>
                                     <li><span>B.Sc. Computer Science</span><br>Currently Pursuing — West Bengal, India</li>
                                     <li><span>Full Stack Web Dev</span><br>Self-taught via Udemy, FreeCodeCamp & MDN (2022 – 2023)</li>
@@ -231,24 +230,30 @@
                     <!-- Services Strip -->
                     <div class="about-services-strip">
                         <div class="about-service-card" id="svc-web">
-                            <div class="svc-icon-wrap">
-                                <i class="fa-solid fa-code"></i>
+                            <div class="svc-header">
+                                <div class="svc-icon-wrap">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <h4>Web Development</h4>
                             </div>
-                            <h4>Web Development</h4>
-                            <p>Full-stack web apps built with the MERN stack — fast, scalable & responsive.</p>
+                            <p>Full-stack web apps built with the MERN stack — fast, scalable &amp; responsive.</p>
                         </div>
                         <div class="about-service-card" id="svc-app">
-                            <div class="svc-icon-wrap">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            <div class="svc-header">
+                                <div class="svc-icon-wrap">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <h4>App Development</h4>
                             </div>
-                            <h4>App Development</h4>
                             <p>Cross-platform mobile experiences with clean UI and smooth performance.</p>
                         </div>
                         <div class="about-service-card" id="svc-uiux">
-                            <div class="svc-icon-wrap">
-                                <i class="fa-solid fa-pen-ruler"></i>
+                            <div class="svc-header">
+                                <div class="svc-icon-wrap">
+                                    <i class="fa-solid fa-pen-ruler"></i>
+                                </div>
+                                <h4>UI / UX Design</h4>
                             </div>
-                            <h4>UI / UX Design</h4>
                             <p>Intuitive interfaces crafted in Figma — from wireframes to polished prototypes.</p>
                         </div>
                     </div><!-- /about-services-strip -->
@@ -258,37 +263,11 @@
             </div>
         </div>
 
-        <!-- -------------services section---------------- -->
-        <div id="services">
-            <div class="container">
-                <h1 class="sub-title">My Services</h1>
-                <div class="services-list">
-                    <div>
-                        <i class="fa-solid fa-code"></i>
-                        <h2>Web Design</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-crop"></i>
-                        <h2>Web Development</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                    <div>
-                        <i class="fa-brands fa-app-store"></i>
-                        <h2>App Development</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
-                        <a href="#">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- -------------portfolio section---------------- -->
         <div id="portfolio">
             <div class="container">
-                <h1 class="sub-title">My Work</h1>
+                <h1 class="sub-title">Top Projects</h1>
                 <div class="work-list">
                     <div class="work">
                         <img src="images/mealhub.png">
