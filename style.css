@@ -1208,7 +1208,7 @@ nav ul .fa-square-xmark {
         width: 100%;
     }
     .tech-chip span {
-        display: none; /* show icons only on very small screens to save space */
+        display: inline; /* show words on mobile as requested */
     }
     .tech-chip {
         padding: 6px 8px;
