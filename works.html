@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works - Surya Kanta Roy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
+</head>
+<body class="works-page">
+    <div id="header-works">
+        <div class="container">
+            <nav id="navbar">
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#" class="active-nav">WORKS</a></li>
+                </ul>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="images/about.png" class="profile-logo">
+                </div>
+            </nav>
+            <!-- Mobile overlay backdrop -->
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
+        </div>
+    </div>
+
+    <!-- Works Hero Section -->
+    <div id="works-hero">
+        <div class="container">
+            <h1 class="sub-title">Selected Works</h1>
+            <p class="works-subtitle">A curated collection of my featured full-stack applications, UI/UX projects, and software development work.</p>
+        </div>
+    </div>
+
+    <!-- Works Grid Section -->
+    <div id="works-content">
+        <div class="container">
+            <div class="works-grid">
+                
+                <!-- Project 1 -->
+                <div class="works-card glass-container">
+                    <div class="works-img">
+                        <img src="images/mealhub.png" alt="MealHub">
+                    </div>
+                    <div class="works-info">
+                        <div class="works-header">
+                            <h3>MealHub</h3>
+                            <a href="#" class="works-link-btn"><i class="fa-solid fa-share-from-square"></i></a>
+                        </div>
+                        <p class="works-desc">A smart meal management platform for shared living that simplifies meal tracking, expense management, member records, and monthly budget calculations in one intuitive dashboard.</p>
+                        
+                        <div class="tech-chips">
+                            <div class="tech-chip"><span>React.js</span></div>
+                            <div class="tech-chip"><span>Node.js</span></div>
+                            <div class="tech-chip"><span>Express.js</span></div>
+                            <div class="tech-chip"><span>MongoDB</span></div>
+                            <div class="tech-chip"><span>JWT</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="works-card glass-container">
+                    <div class="works-img">
+                        <img src="images/FitTrack.png" alt="FitTrack">
+                    </div>
+                    <div class="works-info">
+                        <div class="works-header">
+                            <h3>FitTrack</h3>
+                            <a href="#" class="works-link-btn"><i class="fa-solid fa-share-from-square"></i></a>
+                        </div>
+                        <p class="works-desc">A smart fitness tracking application that enables users to log workouts, monitor nutrition, track progress, and achieve their health goals through interactive analytics.</p>
+                        
+                        <div class="tech-chips">
+                            <div class="tech-chip"><span>React.js</span></div>
+                            <div class="tech-chip"><span>TypeScript</span></div>
+                            <div class="tech-chip"><span>Context API</span></div>
+                            <div class="tech-chip"><span>Vite</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="works-card glass-container">
+                    <div class="works-img">
+                        <img src="images/CTM.png" alt="Collaborative Task Management">
+                    </div>
+                    <div class="works-info">
+                        <div class="works-header">
+                            <h3>Collaborative Task Management</h3>
+                            <a href="#" class="works-link-btn"><i class="fa-solid fa-share-from-square"></i></a>
+                        </div>
+                        <p class="works-desc">An all-in-one project management solution featuring task organization, team collaboration, progress monitoring, calender view for deadline reminder and real-time workflow management.</p>
+                        
+                        <div class="tech-chips">
+                            <div class="tech-chip"><span>React.js</span></div>
+                            <div class="tech-chip"><span>Node.js</span></div>
+                            <div class="tech-chip"><span>Express.js</span></div>
+                            <div class="tech-chip"><span>MongoDB</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="works-card glass-container">
+                    <div class="works-img">
+                        <img src="images/Medbill.png" alt="MedBill">
+                    </div>
+                    <div class="works-info">
+                        <div class="works-header">
+                            <h3>MedBill</h3>
+                            <a href="#" class="works-link-btn"><i class="fa-solid fa-share-from-square"></i></a>
+                        </div>
+                        <p class="works-desc">A comprehensive pharmacy management system that enables efficient medicine inventory, billing, sales monitoring, and business insights through a responsive web dashboard.</p>
+                        
+                        <div class="tech-chips">
+                            <div class="tech-chip"><span>HTML5</span></div>
+                            <div class="tech-chip"><span>CSS3</span></div>
+                            <div class="tech-chip"><span>JavaScript</span></div>
+                            <div class="tech-chip"><span>MySQL</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright works-copyright">
+        <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
+    </div>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        var navbar   = document.getElementById("navbar");
+        var overlay  = document.getElementById("navOverlay");
+
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+        function openmenu() {
+            if (!isMobile()) return;
+            sidemenu.style.right = "0";
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+        function closemenu() {
+            sidemenu.style.right = "";
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
