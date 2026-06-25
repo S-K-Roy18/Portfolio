@@ -1584,6 +1584,70 @@ nav ul .fa-square-xmark {
     height: 100px; /* Shorter header for works page */
 }
 
+/* Back Button Section */
+.back-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 14px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.back-btn i {
+    font-size: 16px;
+}
+
+.back-btn:hover {
+    background: #ff004f;
+    border-color: #ff004f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 0, 79, 0.3);
+}
+
+@media only screen and (max-width: 768px) {
+    .back-btn .back-text {
+        display: none;
+    }
+    
+    .back-btn {
+        padding: 0;
+        border: none;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    
+    .back-btn i,
+    .back-btn svg {
+        font-size: 35px !important;
+        width: 27px !important;
+        height: 27px !important;
+    }
+    
+    .back-btn:hover {
+        background: transparent;
+        box-shadow: none;
+        transform: translateY(-2px);
+        color: #ff004f;
+    }
+}
+
 #works-hero {
     padding: 100px 0 40px;
     text-align: center;
