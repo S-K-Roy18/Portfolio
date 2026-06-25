@@ -708,11 +708,11 @@ nav ul li a::after { display: none; }
 }
 .work{
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     background: transparent;
     border: none;
     box-shadow: none;
-    border-radius: 0;
+    border-radius: 24px;
     transition: .35s;
 }
 .work img{
@@ -734,45 +734,59 @@ nav ul li a::after { display: none; }
 
     transition:.5s;
 }
-.layer{
-    position:absolute;
-    inset:0;                 /* replaces left,bottom,width,height */
-
-    border-radius:24px;      /* same as .work img */
-
-    background:linear-gradient(
-        to top,
-        rgba(255,0,79,.95) 0%,
-        rgba(255,0,79,.65) 40%,
-        rgba(0,0,0,.15) 100%
-    );
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-
-    padding:40px;
-
-    opacity:0;
-    transition:.45s;
+.glass-panel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    background: rgba(20, 20, 32, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    border-radius: 0 0 24px 24px;
 }
-.layer h3{
-    font-weight: 500;
-    margin-bottom: 20px;
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.layer a{
-    margin-top: 20px;
-    color: #ff004f;
+.panel-header h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #fff;
+    margin: 0;
+}
+.panel-desc {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+    text-align: left;
+}
+.panel-header a {
+    color: #fff;
     text-decoration: none;
     font-size: 18px;
-    line-height: 60px;
-    background: #fff;
-    width: 60px;
-    height: 60px;
+    background: rgba(255, 0, 79, 0.8);
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s;
+}
+.panel-header a:hover {
+    background: #ff004f;
+    transform: scale(1.1);
 }
 .work:hover{
     transform:translateY(-8px);
@@ -781,7 +795,8 @@ nav ul li a::after { display: none; }
 .work:hover img{
     transform:scale(1.04);
 }
-.work:hover .layer{
+.work:hover .glass-panel{
+    transform: translateY(0);
     opacity:1;
 }
 .btn{
