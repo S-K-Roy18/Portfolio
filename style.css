@@ -48,6 +48,9 @@ body{
 .container{
     padding: 10px 7%;
 }
+#portfolio .container{
+    padding: 10px 5%;
+}
 
 /* ============================================================
    LIQUID GLASS NAVBAR — iOS 26 / macOS Tahoe aesthetic
@@ -697,39 +700,63 @@ nav ul li a::after { display: none; }
     padding: 50px 0;
 }
 .work-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-    margin-top: 40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+    margin-top:50px;
+    align-items:start;
 }
 .work{
-    border-radius: 10px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    transition: .35s;
 }
 .work img{
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.5s;
+    width:100%;
+    height:420px;
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 15px 40px rgba(0,0,0,.35);
+
+    transition:.5s;
 }
 .layer{
-    width: 100%;
-    height: 0;
-    background:linear-gradient(rgba(0,0,0,0.6), #ff004f);
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    font-size: 14px;
-    transition: height 0.5s;
+    position:absolute;
+    inset:0;                 /* replaces left,bottom,width,height */
+
+    border-radius:24px;      /* same as .work img */
+
+    background:linear-gradient(
+        to top,
+        rgba(255,0,79,.95) 0%,
+        rgba(255,0,79,.65) 40%,
+        rgba(0,0,0,.15) 100%
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+
+    padding:40px;
+
+    opacity:0;
+    transition:.45s;
 }
 .layer h3{
     font-weight: 500;
@@ -747,11 +774,15 @@ nav ul li a::after { display: none; }
     border-radius: 50%;
     text-align: center;
 }
+.work:hover{
+    transform:translateY(-8px);
+}
+
 .work:hover img{
-    transform: scale(1.1);
+    transform:scale(1.04);
 }
 .work:hover .layer{
-    height: 100%;
+    opacity:1;
 }
 .btn{
     display: block;
@@ -1230,6 +1261,27 @@ nav ul .fa-square-xmark {
         grid-gap: 16px;
         margin-top: 24px;
     }
+    .work{
+    aspect-ratio:auto;
+}
+
+.work img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+
+    display:block;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:#111;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 15px 40px rgba(0,0,0,.35);
+    }
     .btn {
         padding: 12px 36px;
         font-size: 14px;
@@ -1363,20 +1415,20 @@ nav ul .fa-square-xmark {
         height: 420px;
     }
     .gallery-card{
-    left:12px;
-    width:calc(100% - 24px);
+        left:12px;
+        width:calc(100% - 24px);
 
-    height:350px;
+        height:350px;
 
-    border-radius:28px;
-    overflow:hidden;
-}
-.gallery-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:28px;
-}
+        border-radius:28px;
+        overflow:hidden;
+    }
+    .gallery-card img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        border-radius:28px;
+    }
 
     .gallery-card.card-prev{
         transform: translateY(calc(-50% - 180px)) scale(0.92);
@@ -1386,19 +1438,19 @@ nav ul .fa-square-xmark {
         transform: translateY(calc(-50% + 180px)) scale(0.92);
     }
     .card-gallery-wrap{
-    max-width:100%;
-    padding:0;
+        max-width:100%;
+        padding:0;
 
-    background:transparent;
-    backdrop-filter:none;
+        background:transparent;
+        backdrop-filter:none;
 
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:28px;
+        border:1px solid rgba(255,255,255,0.08);
+        border-radius:28px;
 
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,0.03),
-        inset 0 1px 0 rgba(255,255,255,0.06);
-}
+        box-shadow:
+            0 0 0 1px rgba(255,255,255,0.03),
+            inset 0 1px 0 rgba(255,255,255,0.06);
+    }
     .card-dots {
         flex-direction: row;
         gap: 8px;
