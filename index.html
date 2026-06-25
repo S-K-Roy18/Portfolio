@@ -16,6 +16,7 @@
 </head>
 <body>
     <div id="header">
+        <div class="bg-layer" id="bgLayer"></div>
         <div class="container">
             <nav id="navbar">
                 <img src="images/logo.png" class="logo">
@@ -394,14 +395,40 @@
                 document.body.style.overflow = "";
             }
 
-            /* ── Scroll: toggle .scrolled on navbar ── */
+            /* ── Scroll: toggle .scrolled on navbar and dynamic effects ── */
+            const bgLayer = document.getElementById("bgLayer");
+            const heroText = document.querySelector(".header-text");
+            
             window.addEventListener("scroll", function () {
-                if (window.scrollY > 50) {
+                let scrollY = window.scrollY;
+                
+                if (scrollY > 50) {
                     navbar.classList.add("scrolled");
                 } else {
                     navbar.classList.remove("scrolled");
                 }
+                
+                // Dynamic blur, fade, and parallax effect
+                let maxScroll = window.innerHeight; 
+                let progress = Math.min(scrollY / maxScroll, 1);
+                
+                let blurValue = progress * 8; // 0 to 8px
+                let overlayAlpha = progress * 0.75; // 0 to 0.75 dark overlay
+                let heroOpacity = 1 - (progress * 1.5); // fades slightly faster
+                
+                if(bgLayer) {
+                    bgLayer.style.backdropFilter = `blur(${blurValue}px)`;
+                    bgLayer.style.webkitBackdropFilter = `blur(${blurValue}px)`;
+                    bgLayer.style.background = `rgba(0, 0, 0, ${overlayAlpha})`;
+                }
+                
+                if(heroText) {
+                    heroText.style.opacity = Math.max(heroOpacity, 0);
+                    heroText.style.transform = `translateY(${progress * 60}px)`;
+                }
             });
+
+
 
             /* ── Active link: highlight based on scroll position ── */
             const sections = document.querySelectorAll("section, div[id]");

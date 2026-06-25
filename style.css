@@ -22,6 +22,29 @@ body{
     position: relative;   /* anchor for scroll indicator */
 }
 
+/* ── Background blur layer for scroll effect ── */
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind the container, but above the background image */
+    pointer-events: none; /* Let clicks pass through */
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    /* No transition on scroll values to avoid lag during fast scrolling, 
+       but we can use transform/opacity optimizations if needed */
+    will-change: backdrop-filter, background-color;
+}
+
+#header .container {
+    position: relative;
+    z-index: 2; /* Keep content above the background layer */
+}
+
+
 /* ── Scroll indicator (home section) ── */
 .scroll-indicator {
     position: absolute;
@@ -216,6 +239,7 @@ nav ul li a::after { display: none; }
     margin-top: 20%;
     font-size: 30px;
     width:55%;
+    will-change: transform, opacity;
 }
 .header-text h1{
     font-size: 60px;
