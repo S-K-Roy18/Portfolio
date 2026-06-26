@@ -898,6 +898,7 @@ form .btn2{
     cursor: pointer;
 }
 .copyright{
+    position: relative;
     width: 100%;
     text-align: center;
     padding: 20px 0;
@@ -906,10 +907,30 @@ form .btn2{
     margin-top: 40px;
 }
 #contact{
+    position: relative;
     padding-bottom: 0;
 }
 .copyright i{
     color: #ff004f;
+}
+
+#contact .signature-watermark {
+    display: block;
+    width: fit-content;
+    margin-top: 10px;
+    margin-left: auto;
+    font-family: 'La Belle Aurore', cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+@keyframes write-signature {
+    0%, 10% { clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); }
+    70%, 100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
 }
 /* ============================================================
    MOBILE & RESPONSIVE
@@ -1382,7 +1403,7 @@ nav ul .fa-square-xmark {
         left: 8%;
         transform: none;
         font-size: 20px;
-        bottom: 70px;
+        bottom: 80px;
     }
     .scroll-indicator:hover {
         transform: scale(1.15);
