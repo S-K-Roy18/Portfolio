@@ -1382,7 +1382,7 @@ nav ul .fa-square-xmark {
         left: 8%;
         transform: none;
         font-size: 20px;
-        bottom: 60px;
+        bottom: 70px;
     }
     .scroll-indicator:hover {
         transform: scale(1.15);
@@ -1501,7 +1501,7 @@ nav ul .fa-square-xmark {
 
 /* Location & Available boxes */
 .hero-box,
-.hero-cv{
+.hero-buttons .hero-cv{
     width:180px;
     height:48px;
 
@@ -1509,6 +1509,7 @@ nav ul .fa-square-xmark {
     align-items:center;
     justify-content:center;
     gap:10px;
+    padding: 0 16px;
 
     border:1px solid #ff004f;
     border-radius:20px;

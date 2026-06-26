@@ -50,8 +50,8 @@
 <div class="hero-buttons">
 
     <div class="hero-box location-box">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>Kolkata, West Bengal</span>
+        <span id="location-icon-wrapper"><i class="fa-solid fa-location-dot"></i></span>
+        <span id="location-text">Kolkata, West Bengal</span>
     </div>
 
     <div class="hero-box status-box">
@@ -473,26 +473,45 @@
 	})
 </script>
 <script>
-const statusBox = document.querySelector(".status-box");
-const statusText = document.getElementById("status-text");
-const statusIcon = document.querySelector(".status-icon");
+const locationBox = document.querySelector(".location-box");
+const locationText = document.getElementById("location-text");
+const locationIconWrapper = document.getElementById("location-icon-wrapper");
+let isTimeShowing = false;
 
-statusBox.addEventListener("mouseenter", () => {
-    const time = new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit'
+function showTime() {
+    locationText.innerHTML = new Date().toLocaleTimeString([],{
+        hour:'2-digit',
+        minute:'2-digit'
     });
+    locationIconWrapper.innerHTML = '<i class="fa-regular fa-clock"></i>';
+}
 
-    statusText.innerHTML = new Date().toLocaleTimeString([],{
-    hour:'2-digit',
-    minute:'2-digit'
-    });
-    statusIcon.className = "fa-solid fa-clock";
+function showLocation() {
+    locationText.innerHTML = "Kolkata, West Bengal";
+    locationIconWrapper.innerHTML = '<i class="fa-solid fa-location-dot"></i>';
+}
+
+locationBox.addEventListener("mouseenter", () => {
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+        showTime();
+    }
 });
 
-statusBox.addEventListener("mouseleave", () => {
-    statusText.innerHTML = "Available for Hire";
-    statusIcon.className = "fa-regular fa-circle-dot status-icon";
+locationBox.addEventListener("mouseleave", () => {
+    if (!window.matchMedia("(max-width: 768px)").matches) {
+        showLocation();
+    }
+});
+
+locationBox.addEventListener("click", () => {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        isTimeShowing = !isTimeShowing;
+        if (isTimeShowing) {
+            showTime();
+        } else {
+            showLocation();
+        }
+    }
 });
 </script>
 
