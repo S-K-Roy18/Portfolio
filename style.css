@@ -2255,6 +2255,26 @@ nav ul .fa-square-xmark {
     padding-bottom: 20px;
     scroll-behavior: smooth;
     animation: fadeSlideUp 0.8s ease 0.3s backwards;
+    
+    /* Dynamic Fade Mask */
+    --mask-top: black;
+    --mask-bottom: transparent;
+    -webkit-mask-image: linear-gradient(to bottom, var(--mask-top) 0%, black 10%, black 90%, var(--mask-bottom) 100%);
+    mask-image: linear-gradient(to bottom, var(--mask-top) 0%, black 10%, black 90%, var(--mask-bottom) 100%);
+    transition: --mask-top 0.3s, --mask-bottom 0.3s;
+}
+
+.project-right-scrollable.is-top {
+    --mask-top: black;
+    --mask-bottom: transparent;
+}
+.project-right-scrollable.is-middle {
+    --mask-top: transparent;
+    --mask-bottom: transparent;
+}
+.project-right-scrollable.is-bottom {
+    --mask-top: transparent;
+    --mask-bottom: black;
 }
 
 .project-right-scrollable::-webkit-scrollbar {
@@ -2411,5 +2431,7 @@ nav ul .fa-square-xmark {
     .project-right-scrollable {
         height: auto;
         overflow-y: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
 }
