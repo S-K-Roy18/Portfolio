@@ -2066,7 +2066,7 @@ nav ul .fa-square-xmark {
 }
 
 .project-page-header {
-    padding: 20px 40px;
+    padding: 20px 7%;
     flex-shrink: 0;
 }
 
@@ -2093,8 +2093,9 @@ nav ul .fa-square-xmark {
 
 .project-detail-container {
     display:grid;
-    grid-template-columns:68% 32%;
-    gap:35px;
+    grid-template-columns: 68fr 32fr;
+    gap: 40px;
+    padding: 0 7%;
     align-items:start;
     flex-grow: 1;
     overflow: hidden;
@@ -2103,17 +2104,15 @@ nav ul .fa-square-xmark {
 }
 
 .project-left {
-    
     height: 100%;
-    padding: 0px 40px 40px 40px;
+    padding: 0px 0px 40px 0px;
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
 
 .project-left-img-container {
-    height:640px;
-    min-height: 0;
+    height: auto;
     width: 100%;
     border-radius: 20px;
     overflow: hidden;
@@ -2144,9 +2143,10 @@ nav ul .fa-square-xmark {
 }
 
 .project-left-img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
@@ -2239,9 +2239,9 @@ nav ul .fa-square-xmark {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0px 40px 40px 20px;
+    padding: 0px 0px 40px 0px;
     overflow: hidden;
-    gap: 20px;
+    gap: 30px;
 }
 
 .project-right-scrollable {
