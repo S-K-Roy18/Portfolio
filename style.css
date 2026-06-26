@@ -1155,27 +1155,29 @@ nav ul .fa-square-xmark {
     }
     .intro {
         font-size: 16px;
-        margin-bottom: 4px;
+        margin-bottom: 0;
     }
     .name-font {
-        display: block;          /* must be block so long name wraps */
-        font-size: 72px;
-        transform: none;         /* kill the huge scale(1.60,1.55) */
+        display: block;          
+        font-size: 42px;
+        transform: none;         
         transform-origin: unset;
-        line-height: 0.95;
-        margin-bottom: 5px;
+        line-height: 1.1;
+        margin-top: 0;
+        margin-bottom: 10px;
         white-space: normal;
         word-break: break-word;
         max-width: 100%;
         overflow: visible;
     }
     .role {
-        width: 58%;
-        font-size: 13px;
-        line-height: 1.6;
+        width: 55%;
+        font-size: 12px;
+        line-height: 1.7;
         max-width: 100%;
         letter-spacing: 0;
         margin-top: 15px;
+        color:rgba(255,255,255,.72);
     }
 
 .hero-buttons .hero-cv{
@@ -1395,55 +1397,35 @@ nav ul .fa-square-xmark {
         display:none !important;
     }
 
-/* Align buttons to left */
+/* Align buttons for mobile */
 .hero-buttons{
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
-    margin-top:20px;
-    margin-left:0;
+    align-items:flex-start !important;
+    gap:12px;
+    margin-top:20px !important;
+    margin-left: 0 !important;
 }
-/* Smaller location and CV boxes */
+
+/* Smaller location and CV boxes left aligned */
 .hero-buttons .location-box,
 .hero-buttons .hero-cv{
-    width:150px;
-    height:40px;
-
-    margin:0;
-    padding-left:16px;
-
-    justify-content:flex-start;
-
-    border-radius:16px;
-
-    font-size:12px;
-    gap:10px;
-
-     transform:translateX(-110px);
-     margin-top:-15px;
-    }
-
-    /* Remove automatic centering from .btn */
-    .hero-buttons .hero-cv{
-        width:150px;
-        height:40px;
-
-        display:flex;
-        align-items:center;
-        justify-content:flex-start;
-
-        padding-left:20px;
-        gap:6px;          /* controls icon-text gap */
-
-        margin-top:-15px !important;
-        margin:0 !important;
-    }
-    /* Shift everything further left */
-    .location-box,
-    .hero-cv{
-        transform: translateX(-10px);
-    }
+    width: 145px;
+    height: 38px;
+    margin: 0 !important;
+    padding: 0 16px;
+    justify-content: flex-start !important;
+    border-radius: 14px;
+    font-size: 12px;
+    gap: 10px;
+    transform: none;
+}
+.hero-buttons .hero-cv {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    gap: 10px;
+}
 
     /* ── CARD GALLERY — mobile ── */
     .about-col-1 {
