@@ -1501,7 +1501,7 @@ nav ul .fa-square-xmark {
 
 /* Location & Available boxes */
 .hero-box,
-.hero-buttons .hero-cv{
+.hero-cv{
     width:180px;
     height:48px;
 
@@ -1519,6 +1519,11 @@ nav ul .fa-square-xmark {
     font-size:18px;
 
     white-space:nowrap;
+}
+
+.hero-cv {
+    display: flex !important;
+    padding: 0 16px !important;
 }
 
 .location-box{
