@@ -1382,7 +1382,7 @@ nav ul .fa-square-xmark {
         left: 8%;
         transform: none;
         font-size: 20px;
-        bottom: 30px;
+        bottom: 60px;
     }
     .scroll-indicator:hover {
         transform: scale(1.15);
