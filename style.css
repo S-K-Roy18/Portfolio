@@ -1155,7 +1155,7 @@ nav ul .fa-square-xmark {
     }
     .intro {
         font-size: 16px;
-        margin-bottom: 0;
+        margin-bottom: -25px;
     }
     .name-font {
         display: block;          
