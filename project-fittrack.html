@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack Project - Surya Kanta Roy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
+</head>
+<body class="project-detail-body">
+    <div id="header-works">
+        <div class="container">
+            <nav id="navbar">
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="works.html" class="active-nav">WORKS</a></li>
+                </ul>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="images/about.png" class="profile-logo">
+                </div>
+            </nav>
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
+        </div>
+    </div>
+
+    <div class="project-page-content">
+        <div class="project-page-header">
+            <div style="margin-bottom: 20px;">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa-solid fa-circle-left"></i> <span class="back-text">Back to Projects</span>
+                </a>
+            </div>
+            <h1 class="project-title-large">FitTrack</h1>
+        </div>
+        
+        <div class="project-detail-container">
+            <div class="project-left">
+                <div class="project-left-img-container">
+                    <img src="images/FitTrack.png" class="project-left-img" alt="FitTrack">
+                </div>
+                <div class="project-core-stack">
+                    <h3>Tech Stack</h3>
+                    <div class="stack-category">
+                        <h4>Technologies</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-brands fa-react"></i> React</div><div class="tech-chip"><i class="fa-brands fa-js"></i> TypeScript</div><div class="tech-chip"><i class="fa-solid fa-bolt"></i> Vite</div><div class="tech-chip"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</div><div class="tech-chip"><i class="fa-brands fa-strapi"></i> Strapi CMS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-right-scrollable">
+                    <div class="project-right-content">
+                        <div class="project-section">
+                            <h2>Overview</h2>
+                            <p>A smart fitness tracking application that enables users to log workouts, monitor nutrition, track progress, and achieve their health goals through interactive analytics.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>The Problem</h2>
+                            <p>Managing the complexities of this domain requires a robust, scalable, and intuitive system that minimizes manual errors and enhances user experience.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>The Solution</h2>
+                            <p>We built a comprehensive, digitized platform providing transparent tracking, automated processes, and simplified interactions tailored for end users.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Key Features</h2>
+                            <p>• Intuitive User Interface<br>• Real-time Data Analytics<br>• Secure Authentication<br>• Automated Processes<br>• Responsive Design</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Development Process</h2>
+                            <p>Started with robust architecture planning, followed by secure backend development, and finally an interactive and polished frontend.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn works-link-btn" style="width:100%; border-radius:30px;"><i class="fa-solid fa-share-from-square"></i> Live Demo</a>
+                    <a href="#" class="btn works-link-btn btn-outline" style="width:100%; border-radius:30px; background:transparent; border:1px solid #ff004f;"><i class="fa-brands fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        var navOverlay = document.getElementById("navOverlay");
+        function openmenu() {
+            sidemenu.style.right = "0";
+            navOverlay.style.display = "block";
+            setTimeout(() => { navOverlay.style.opacity = "1"; }, 10);
+            document.body.style.overflow = "hidden";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-250px";
+            navOverlay.style.opacity = "0";
+            setTimeout(() => { navOverlay.style.display = "none"; }, 300);
+            document.body.style.overflow = "auto";
+        }
+    </script>
+</body>
+</html>
