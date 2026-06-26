@@ -2394,16 +2394,17 @@ nav ul .fa-square-xmark {
         flex-direction: column;
         height: auto;
         gap: 20px;
+        padding: 0 5%;
     }
     .project-page-header {
-        padding: 20px;
+        padding: 20px 5%;
     }
     .project-title-large {
         font-size: 32px;
     }
     .project-left {
         width: 100%;
-        padding: 20px;
+        padding: 20px 0;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -2422,7 +2423,7 @@ nav ul .fa-square-xmark {
     .project-right {
         width: 100%;
         height: auto;
-        padding: 20px;
+        padding: 20px 0;
         position: static;
         display: flex;
         flex-direction: column;
