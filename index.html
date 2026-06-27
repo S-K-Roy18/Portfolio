@@ -29,7 +29,7 @@
                 <img src="images/logo.png" class="logo">
                 <ul id="sidemenu">
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                    <li><a href="#header" onclick="closemenu()">HOME</a></li>
+                    <li><a href="#header" class="active-nav" onclick="closemenu()">HOME</a></li>
                     <li><a href="#about" onclick="closemenu()">ABOUT</a></li>
                     <li><a href="#portfolio" onclick="closemenu()">WORK</a></li>
                     <li><a href="#contact" onclick="closemenu()">CONTACT</a></li>
@@ -575,6 +575,11 @@ locationBox.addEventListener("click", () => {
         touchY = e.touches[0].clientY;
     }, { passive: true });
 
+    // Prevent native page scrolling while swiping on the gallery container
+    gallery.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
+
     gallery.addEventListener('touchend', (e) => {
         const dy = touchY - e.changedTouches[0].clientY;
         if (Math.abs(dy) > 40) goTo(current + (dy > 0 ? 1 : -1));
@@ -636,6 +641,36 @@ locationBox.addEventListener("click", () => {
     // Start animation on load
     window.addEventListener('load', () => {
         setTimeout(animateIntro, 200); // slight delay to ensure smooth start
+    });
+</script>
+
+<!-- Scrollspy Script for Active Nav Link -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll("#header, #about, #portfolio, #contact");
+        const navLinks = document.querySelectorAll("#sidemenu li a");
+
+        function updateActiveNav() {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Trigger when the section is around 1/3 into the viewport
+                if (window.scrollY >= sectionTop - window.innerHeight / 3) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active-nav");
+                if (current && link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active-nav");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", updateActiveNav);
+        // Initialize on load
+        updateActiveNav();
     });
 </script>
 </body>
