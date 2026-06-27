@@ -84,4 +84,4 @@ cd Portfolio
 Simply open `index.html` in your favorite modern web browser to view the site! No build tools or package managers required.
 
 ---
-⭐ *If you found this project inspiring or helpful, consider giving it a star on GitHub!*
+⭐ *If you found this project inspiring or helpful, consider giving it a star on GitHub! And dont't do clone or copy without my permission...*
