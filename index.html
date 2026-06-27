@@ -333,6 +333,7 @@
                     <p><i class="fa-solid fa-envelope"></i>suryarahulroy321@gmail.com</p>
                     <p><i class="fa-solid fa-square-phone"></i>+91 81672 76728</p>
                     <div class="social-icons">
+                        <a href="https://wa.me/918167276728"><i class="fa-brands fa-square-whatsapp"></i></a>
                         <a href="https://www.facebook.com/profile.php?id=61573999181390"><i class="fa-brands fa-square-facebook"></i></a>
                         <a href="https://www.instagram.com/_.the__sun._"><i class="fa-brands fa-square-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/surya-kanta-roy-363866338/"><i class="fa-brands fa-square-linkedin"></i></a>
@@ -340,14 +341,17 @@
                     </div>
                     <a href="images/Surya CV main.pdf" download class="btn btn2">Download CV</a>
                 </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
+                <div class="contact-right collab-section">
+                    <h2 class="collab-heading">
+                        Let's Build Something<br>
+                        <span class="collab-heading-dim">Meaningful.</span>
+                    </h2>
+                    <p class="collab-subheading">
+                        Whether you have a project idea, freelance opportunity, internship, or simply want to connect,<br>I'd be happy to hear from you. Let's discuss how we can build something exceptional together.
+                    </p>
+                    <a href="mailto:suryarahulroy321@gmail.com?subject=Project%20Collaboration&body=Hello%20Surya,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you.%0D%0A%0D%0AProject%20Details:%0D%0A%0D%0A%0D%0ALooking%20forward%20to%20hearing%20from%20you." class="btn btn2 collab-btn">
+                        <i class="fa-solid fa-envelope"></i> Get In Touch <i class="fa-regular fa-paper-plane"></i>
+                    </a>
                     <div class="signature-watermark">-S.K.Roy</div>
                 </div>
             </div>  
@@ -460,25 +464,7 @@
                 observer.observe(section);
             });
         </script>
-        <script>
-	const scriptURL = 'https://script.google.com/macros/s/AKfycbyj13dfhxxCkDTlNdiElMQOzwXMljF9rwEcP60ytPTjpXfkL_yRnC1G8SwmrylvAba_6A/exec'
-	const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
 
-	form.addEventListener('submit', e => {
-		e.preventDefault()
-		fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-			.then(response => response.json())
-			.then(response => {
-                msg.innerHTML = "Message sent successfully!";
-                setTimeout(function(){
-                    msg.innerHTML = ""
-                }, 5000);
-                form.reset();
-            })
-			.catch(error => console.error('Error!', error.message))
-	})
-</script>
 <script>
 const locationBox = document.querySelector(".location-box");
 const locationText = document.getElementById("location-text");

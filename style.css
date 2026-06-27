@@ -922,26 +922,53 @@ nav ul li a::after { display: none; }
     display: inline-block;
     background: #ff004f;
 }
-.contact-right form{
+.collab-section {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
 }
-form input,form textarea{
-    width: 100%;
-    border: 0;
-    outline: none;
-    background: #262626;
-    padding: 15px;
-    margin: 15px 0;
+.collab-heading {
+    font-size: 52px;
+    font-family: "Alegreya", serif;
+    font-weight: 500;
     color: #fff;
-    font-size: 18px;
-    border-radius: 6px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.1;
 }
-form .btn2{
-    display: inline-block;
-    padding: 14px 60px;
+.collab-heading-dim {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.9em;
+}
+.collab-subheading {
+    font-size: 16px;
+    color: #ababab;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 90%;
+    font-family: 'Lora', serif;
+}
+.collab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff004f;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
     font-size: 18px;
-    margin: 20px 0;
-    cursor: pointer;
+    transition: background 0.5s;
+}
+.collab-btn:hover {
+    background: #ff004f;
+}
+.collab-btn i {
+    font-size: 18px;
 }
 .copyright{
     position: relative;
@@ -1407,6 +1434,10 @@ nav ul .fa-square-xmark {
     }
     .contact-left {
         margin-bottom: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     .contact-left p {
         font-size: 14px;
@@ -1424,15 +1455,20 @@ nav ul .fa-square-xmark {
         font-size: 26px;
         margin-right: 12px;
     }
-    form input,
-    form textarea {
-        font-size: 15px;
-        padding: 12px;
-        margin: 10px 0;
+    .collab-heading {
+        font-size: 38px;
     }
-    form .btn2 {
-        padding: 12px 40px;
-        font-size: 15px;
+    .collab-heading-dim {
+        font-size: 0.9em;
+    }
+    .collab-subheading {
+        font-size: 14px;
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+    .collab-btn {
+        padding: 14px 36px;
+        font-size: 16px;
     }
 
     /* ── MISC ── */
