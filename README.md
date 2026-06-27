@@ -4,7 +4,7 @@ A modern, highly interactive, and visually stunning personal portfolio website b
 
 ## 🚀 Live Demo
 
-*(suryakantaroy.vercel.app)*
+*([suryakantaroy.vercel.app](https://suryakantaroy.vercel.app/))*
 
 ## ✨ Highlighted Features
 
@@ -60,14 +60,16 @@ A fitness tracking application for monitoring workouts and healthy lifestyle act
 An end-to-end medicine billing and pharmacy management system.
 
 ### 📊 CTM
-*(Add brief description for CTM here)*
+An all-in-one project management solution featuring task organization, team collaboration, progress monitoring, calender view for deadline reminder and real-time workflow management.
+
+
 
 ## 📬 Contact Information
 
 **Surya Kanta Roy**
 - 📍 **Location:** Kolkata, West Bengal
 - 📧 **Email:** suryarahulroy321@gmail.com
-- 🔗 **LinkedIn:** *(Add your LinkedIn profile URL)*
+- 🔗 **LinkedIn:** *[Surya Kanta Roy](https://www.linkedin.com/in/surya-kanta-roy-363866338/)*
 - 🐙 **GitHub:** [S-K-Roy18](https://github.com/S-K-Roy18)
 
 ## ⚙️ Local Installation
