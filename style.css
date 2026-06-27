@@ -12,6 +12,71 @@ body{
     color: #fff;
     overflow-x: hidden;
 }
+
+/* ── Splash Screen Intro ── */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #080808;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+#intro-screen.slide-up {
+    transform: translateY(-100%);
+}
+#intro-text {
+    color: rgba(255, 255, 255, 0.72);
+    font-family: 'Lora', serif;
+    font-size: 3.5vw;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: center;
+    padding: 0 20px;
+}
+#intro-divider {
+    width: 250px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+#intro-tagline {
+    color: rgba(255, 255, 255, 0.5); /* slightly lower opacity */
+    font-family: 'Alegreya', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.4vw; /* lower font size */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    padding: 0 20px;
+}
+@media only screen and (max-width: 768px) {
+    #intro-text {
+        font-size: 6vw;
+    }
+    #intro-divider {
+        width: 150px;
+    }
+    #intro-tagline {
+        font-size: 3.5vw;
+    }
+}
+#intro-text.fade-in,
+#intro-divider.fade-in,
+#intro-tagline.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease; /* fade in duration */
+}
+
 #header{
     width: 100%;
     height: 100vh;

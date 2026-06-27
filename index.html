@@ -15,6 +15,13 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
+    <!-- Splash Screen Intro -->
+    <div id="intro-screen">
+        <h1 id="intro-text"></h1>
+        <div id="intro-divider"></div>
+        <h2 id="intro-tagline">Let's Build Something Meaningful.</h2>
+    </div>
+
     <div id="header">
         <div class="bg-layer" id="bgLayer"></div>
         <div class="container">
@@ -576,6 +583,60 @@ locationBox.addEventListener("click", () => {
     /* ── Init ── */
     updateCards(0);
 })();
+</script>
+
+<script>
+    const introScreen = document.getElementById('intro-screen');
+    const introText = document.getElementById('intro-text');
+    const introTagline = document.getElementById('intro-tagline');
+    const introDivider = document.getElementById('intro-divider');
+    const greetings = ["Hello", "नमस्ते", "নমস্কার"];
+    let introIndex = 0;
+
+    // Prevent scrolling during intro
+    document.body.style.overflow = 'hidden';
+
+    function animateIntro() {
+        if (introIndex < greetings.length) {
+            introText.innerHTML = greetings[introIndex];
+            introText.classList.add('fade-in');
+
+            if (introIndex === 0) {
+                // Fade in tagline and divider on the first greeting and keep them visible
+                introTagline.classList.add('fade-in');
+                introDivider.classList.add('fade-in');
+            }
+            
+            setTimeout(() => {
+                introText.classList.remove('fade-in');
+                
+                if (introIndex === greetings.length - 1) {
+                    // Fade out tagline and divider with the last greeting
+                    introTagline.classList.remove('fade-in');
+                    introDivider.classList.remove('fade-in');
+                }
+                
+                setTimeout(() => {
+                    introIndex++;
+                    animateIntro();
+                }, 400); // 0.4s fade out
+            }, 1000); // 0.5s fade in + 0.5s stay = 1000ms
+        } else {
+            // Slide up the intro screen
+            introScreen.classList.add('slide-up');
+            // Re-enable scrolling
+            document.body.style.overflow = 'auto';
+            
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+            }, 800); // match CSS transition duration
+        }
+    }
+
+    // Start animation on load
+    window.addEventListener('load', () => {
+        setTimeout(animateIntro, 200); // slight delay to ensure smooth start
+    });
 </script>
 </body>
 </html>
