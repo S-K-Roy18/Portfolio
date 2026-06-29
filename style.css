@@ -1492,10 +1492,16 @@ nav ul .fa-square-xmark {
     }
     .social-icons {
         margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 22px;
     }
     .social-icons a {
         font-size: 26px;
-        margin-right: 12px;
+        margin-right: 0;
+    }
+    .contact-left .btn2 {
+        width: fit-content;
     }
     .collab-heading {
         font-size: 38px;
@@ -1952,7 +1958,7 @@ nav ul .fa-square-xmark {
         font-size: 15px;
         padding: 0 10px;
     }
-    .work.works-img {
+    .works-img {
         height: 220px;
     }
     .works-info {
