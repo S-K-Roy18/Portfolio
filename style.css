@@ -83,7 +83,8 @@ body{
     height: 100svh; /* Small viewport height to fix mobile jitter */
     background-image: url(images/background.png);
     background-size: cover;
-    background-position: center;
+    /* Fluidly shift background right on screens smaller than 1600px to avoid text overlap */
+    background-position: calc(100% + max(0px, 1600px - 100vw)) center;
     background-attachment: fixed;
     position: relative;   /* anchor for scroll indicator */
 }
@@ -1045,6 +1046,7 @@ nav ul .fa-square-xmark {
     }
     .header-text {
         width: 80%;
+        max-width: 100%;
     }
     .header-text h1.name-font {
         font-size: 100px;
@@ -1285,6 +1287,7 @@ nav ul .fa-square-xmark {
     }
     .header-text {
         width: 100%;
+        max-width: 100%;
         margin-top: 80px;
         padding: 0;
     }
