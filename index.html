@@ -639,9 +639,21 @@ locationBox.addEventListener("click", () => {
         }
     }
 
-    // Start animation on load
+    // Start animation on load, but only if it hasn't been played this session (or if 24 hours have passed)
     window.addEventListener('load', () => {
-        setTimeout(animateIntro, 200); // slight delay to ensure smooth start
+        const now = Date.now();
+        const lastPlayed = sessionStorage.getItem('introTimestamp');
+        const twentyFourHours = 24 * 60 * 60 * 1000;
+
+        if (lastPlayed && (now - parseInt(lastPlayed) < twentyFourHours)) {
+            // Skip intro: already played in this session recently
+            introScreen.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        } else {
+            // Play intro: first visit, new session, or 24+ hours elapsed
+            sessionStorage.setItem('introTimestamp', now.toString());
+            setTimeout(animateIntro, 200); // slight delay to ensure smooth start
+        }
     });
 </script>
 
