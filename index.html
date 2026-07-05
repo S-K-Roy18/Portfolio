@@ -529,7 +529,8 @@ locationBox.addEventListener("click", () => {
    ============================================================ */
 (function () {
     const gallery  = document.getElementById('cardGallery');
-    if (!gallery) return;
+    const aboutSection = document.getElementById('about');
+    if (!gallery || !aboutSection) return;
 
     const cards = Array.from(gallery.querySelectorAll('.gallery-card'));
     const TOTAL = cards.length;
@@ -537,17 +538,13 @@ locationBox.addEventListener("click", () => {
 
     /* ── Assign CSS class based on position relative to active ── */
     function getStateClass(i, active) {
-
-    if (i === active) return 'card-active';
-
-    const prev = (active - 1 + TOTAL) % TOTAL;
-    const next = (active + 1) % TOTAL;
-
-    if (i === prev) return 'card-prev';
-    if (i === next) return 'card-next';
-
-    return i < active ? 'card-far-prev' : 'card-far-next';
-}
+        if (i === active) return 'card-active';
+        const prev = (active - 1 + TOTAL) % TOTAL;
+        const next = (active + 1) % TOTAL;
+        if (i === prev) return 'card-prev';
+        if (i === next) return 'card-next';
+        return i < active ? 'card-far-prev' : 'card-far-next';
+    }
 
     function updateCards(idx) {
         cards.forEach((card, i) => {
@@ -557,13 +554,79 @@ locationBox.addEventListener("click", () => {
     }
 
     function goTo(idx) {
-    idx = (idx + TOTAL) % TOTAL;
-    updateCards(idx);
-}
+        idx = (idx + TOTAL) % TOTAL;
+        updateCards(idx);
+    }
+
+    /* ── Auto-scroll State ── */
+    let autoScrollTimer = null;
+    let interactionTimeout = null;
+    let isAboutVisible = false;
+    let isInteracting = false;
+
+    function startAutoScroll() {
+        if (autoScrollTimer) clearInterval(autoScrollTimer);
+        // Do not auto-scroll if user is interacting, about section is hidden, or the browser tab is not visible
+        if (!isAboutVisible || isInteracting || document.hidden) return;
+        
+        autoScrollTimer = setInterval(() => {
+            goTo(current + 1);
+        }, 6000);
+    }
+
+    function pauseAutoScroll() {
+        if (autoScrollTimer) clearInterval(autoScrollTimer);
+        autoScrollTimer = null;
+    }
+
+    function handleUserInteraction() {
+        isInteracting = true;
+        pauseAutoScroll();
+
+        if (interactionTimeout) clearTimeout(interactionTimeout);
+        
+        interactionTimeout = setTimeout(() => {
+            isInteracting = false;
+            startAutoScroll();
+        }, 6000); // Resume 6s after last interaction
+    }
+
+    /* ── Intersection Observer (Visibility) ── */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            isAboutVisible = entry.isIntersecting;
+            if (isAboutVisible) {
+                // If it becomes visible, give the user 4 seconds of reading time before auto-scrolling
+                handleUserInteraction();
+            } else {
+                pauseAutoScroll();
+            }
+        });
+    }, { threshold: 0.1 }); 
+    observer.observe(gallery); // Observe the gallery itself, not the entire tall section
+
+    /* ── Page Visibility API (Tabs/Minimize) ── */
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            pauseAutoScroll();
+        } else if (isAboutVisible) {
+            // When returning to the tab, give 4 seconds before resuming
+            handleUserInteraction();
+        }
+    });
+
+    /* ── General User Activity (Scrolling, Keys, Touch) ── */
+    // Pause gallery if user is scrolling or reading the about section
+    window.addEventListener('scroll', handleUserInteraction, { passive: true });
+    window.addEventListener('keydown', handleUserInteraction, { passive: true });
+    window.addEventListener('touchstart', handleUserInteraction, { passive: true });
+    window.addEventListener('touchmove', handleUserInteraction, { passive: true });
+
     /* ── Mouse wheel (desktop) ── */
     let wheelLock = false;
     gallery.addEventListener('wheel', (e) => {
         e.preventDefault();
+        handleUserInteraction();
         if (wheelLock) return;
         wheelLock = true;
         goTo(current + (e.deltaY > 0 ? 1 : -1));
@@ -574,16 +637,18 @@ locationBox.addEventListener("click", () => {
     let touchY = 0;
     gallery.addEventListener('touchstart', (e) => {
         touchY = e.touches[0].clientY;
+        handleUserInteraction();
     }, { passive: true });
 
-    // Prevent native page scrolling while swiping on the gallery container
     gallery.addEventListener('touchmove', (e) => {
         e.preventDefault();
+        handleUserInteraction();
     }, { passive: false });
 
     gallery.addEventListener('touchend', (e) => {
         const dy = touchY - e.changedTouches[0].clientY;
         if (Math.abs(dy) > 40) goTo(current + (dy > 0 ? 1 : -1));
+        handleUserInteraction();
     }, { passive: true });
 
     /* ── Init ── */
