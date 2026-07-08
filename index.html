@@ -754,5 +754,52 @@ locationBox.addEventListener("click", () => {
         updateActiveNav();
     });
 </script>
+
+<!-- Portrait Clipping Script -->
+<script>
+    // Dynamically clip the fixed portrait so it never bleeds out of the Hero section
+    document.addEventListener("DOMContentLoaded", function() {
+        const header = document.getElementById("header");
+        const portrait = document.querySelector(".hero-portrait");
+        
+        if (!header || !portrait) return;
+
+        function updatePortraitClip() {
+            // Only apply on desktop where the portrait is fixed
+            if (window.innerWidth <= 1024) return;
+
+            const rect = header.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            // If the bottom of the header scrolls up past the bottom of the screen
+            if (rect.bottom < viewportHeight) {
+                // Calculate exactly how many pixels to slice off the bottom of the fixed portrait
+                const clipAmount = viewportHeight - rect.bottom;
+                portrait.style.clipPath = `inset(0 0 ${clipAmount}px 0)`;
+            } else {
+                // Header fully covers the screen height, no clipping needed
+                portrait.style.clipPath = `inset(0)`;
+            }
+        }
+
+        // Use requestAnimationFrame for buttery smooth clipping during fast scrolls
+        let ticking = false;
+        window.addEventListener("scroll", function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updatePortraitClip();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Handle window resizing
+        window.addEventListener("resize", updatePortraitClip);
+        
+        // Initial call
+        updatePortraitClip();
+    });
+</script>
 </body>
 </html>

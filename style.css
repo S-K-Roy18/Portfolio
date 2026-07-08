@@ -1051,28 +1051,22 @@ nav ul .fa-square-xmark {
 @media only screen and (min-width: 1025px) {
     #header {
         background-image: none !important;
-        background-color: #000; /* Header stays solid */
+        background-color: #000;
     }
     
-    #header .container {
-        position: relative;
-        z-index: 1; /* Ensure text sits above the fixed portrait */
-    }
-
     .hero-portrait-wrap {
         display: block;
-        position: fixed; /* Locks portrait to the viewport, mimicking background-attachment: fixed */
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* Strictly viewport height */
-        overflow: hidden;
-        z-index: 0; /* Keep it underneath the header text */
-        pointer-events: none; /* Let clicks pass through the invisible fixed box */
+        height: 100%;
+        z-index: 0; /* Sit firmly beneath the background blur and text */
+        pointer-events: none;
     }
 
     .hero-portrait {
-        position: absolute;
+        position: fixed; /* Locks portrait to the viewport */
         bottom: 0;
         right: 10vw; /* Shifted 10% toward the center */
         /* Fluid portrait scaling to prevent clipping on smaller laptops while preserving aspect ratio */
@@ -1081,13 +1075,8 @@ nav ul .fa-square-xmark {
         object-fit: contain;
         object-position: bottom right;
         pointer-events: none; /* Let clicks pass through */
-    }
-
-    /* Crucial: Give subsequent sections solid backgrounds so they naturally slide over and hide the fixed portrait */
-    #about, #portfolio, #contact, .copyright, footer {
-        position: relative;
-        z-index: 2; /* Sit physically above the fixed hero wrapper */
-        background-color: #000; /* Acts as a seamless sliding curtain */
+        /* Smooth clipping transition during fast scrolls */
+        will-change: clip-path;
     }
 }
 
