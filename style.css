@@ -83,8 +83,7 @@ body{
     height: 100svh; /* Small viewport height to fix mobile jitter */
     background-image: url(images/background.png);
     background-size: cover;
-    /* Fluidly shift background right on screens smaller than 1600px to avoid text overlap */
-    background-position: calc(100% + max(0px, 1600px - 100vw)) center;
+    background-position: right center;
     background-attachment: fixed;
     position: relative;   /* anchor for scroll indicator */
 }
@@ -305,7 +304,11 @@ nav ul li a::after { display: none; }
 .header-text{
     margin-top: 20%;
     font-size: 30px;
-    width:55%;
+    width: 55%;
+    /* Fluidly restrict the max width on smaller desktop screens to force the heading to wrap 
+       naturally before reaching the portrait. At 1920px, 50vw is 960px (no restriction).
+       At 1024px, 50vw is 512px (forces wrap). */
+    max-width: clamp(380px, 50vw, 1000px);
     will-change: transform, opacity;
 }
 .header-text h1{
@@ -1035,6 +1038,57 @@ nav ul .fa-square-xmark {
 .nav-overlay.active {
     opacity: 1;
     pointer-events: auto;   /* ← allow taps only when menu is open */
+}
+
+/* ============================================================
+/* ============================================================
+   DESKTOP HERO PORTRAIT (TRANSPARENT PNG)
+   ============================================================ */
+.hero-portrait-wrap {
+    display: none; /* Hidden by default (for mobile/tablet) */
+}
+
+@media only screen and (min-width: 1025px) {
+    #header {
+        background-image: none !important;
+        background-color: #000; /* Header stays solid */
+    }
+    
+    #header .container {
+        position: relative;
+        z-index: 1; /* Ensure text sits above the fixed portrait */
+    }
+
+    .hero-portrait-wrap {
+        display: block;
+        position: fixed; /* Locks portrait to the viewport, mimicking background-attachment: fixed */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Strictly viewport height */
+        overflow: hidden;
+        z-index: 0; /* Keep it underneath the header text */
+        pointer-events: none; /* Let clicks pass through the invisible fixed box */
+    }
+
+    .hero-portrait {
+        position: absolute;
+        bottom: 0;
+        right: 10vw; /* Shifted 10% toward the center */
+        /* Fluid portrait scaling to prevent clipping on smaller laptops while preserving aspect ratio */
+        height: clamp(600px, 95vh, 1200px);
+        width: clamp(400px, 45vw, 1000px);
+        object-fit: contain;
+        object-position: bottom right;
+        pointer-events: none; /* Let clicks pass through */
+    }
+
+    /* Crucial: Give subsequent sections solid backgrounds so they naturally slide over and hide the fixed portrait */
+    #about, #portfolio, #contact, .copyright, footer {
+        position: relative;
+        z-index: 2; /* Sit physically above the fixed hero wrapper */
+        background-color: #000; /* Acts as a seamless sliding curtain */
+    }
 }
 
 /* ============================================================
