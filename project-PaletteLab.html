@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedBill Project - Surya Kanta Roy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="project-detail-body">
+    <div id="header-works">
+        <div class="container">
+            <nav id="navbar">
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="works.html">WORKS</a></li>
+                    <li><a href="#" class="active-nav">PROJECT</a></li>
+                </ul>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="images/about.png" class="profile-logo">
+                </div>
+            </nav>
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
+        </div>
+    </div>
+
+    <div class="project-page-content">
+        <div class="project-page-header">
+            <div style="margin-bottom: 20px;">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa-solid fa-circle-left"></i> <span class="back-text">Returs</span>
+                </a>
+            </div>
+            <h1 class="project-title-large">PaletteLab</h1>
+        </div>
+        
+        <div class="project-detail-container">
+            <div class="project-left">
+                <div class="project-left-img-container">
+                    <img src="images/PaletteLab.png" class="project-left-img" alt="PaletteLab">
+                </div>
+                <div class="project-core-stack">
+    <h3>Tech Stack</h3>
+
+    <div class="stack-category">
+        <h4>Frontend</h4>
+        <div class="stack-chips">
+            <div class="tech-chip"><i class="fa-brands fa-react"></i> React 18</div>
+            <div class="tech-chip"><i class="fa-solid fa-code"></i> TypeScript</div>
+            <div class="tech-chip"><i class="fa-solid fa-bolt"></i> Vite</div>
+            <div class="tech-chip"><i class="fa-solid fa-wind"></i> Tailwind CSS v4</div>
+        </div>
+    </div>
+
+    <div class="stack-category">
+        <h4>UI & Styling</h4>
+        <div class="stack-chips">
+            <div class="tech-chip"><i class="fa-solid fa-icons"></i> Lucide React</div>
+            <div class="tech-chip"><i class="fa-solid fa-font"></i> Google Fonts</div>
+        </div>
+    </div>
+
+    <div class="stack-category">
+        <h4>Processing & Algorithms</h4>
+        <div class="stack-chips">
+            <div class="tech-chip"><i class="fa-solid fa-droplet"></i> Median-Cut Quantization</div>
+            <div class="tech-chip"><i class="fa-solid fa-circle-nodes"></i> CIEDE2000</div>
+        </div>
+    </div>
+
+    <div class="stack-category">
+        <h4>Browser APIs</h4>
+        <div class="stack-chips">
+            <div class="tech-chip"><i class="fa-solid fa-image"></i> HTML5 Canvas API</div>
+        </div>
+    </div>
+
+    <div class="stack-category">
+    <h4>Development & Deployment</h4>
+    <div class="stack-chips">
+        <div class="tech-chip"><i class="fa-brands fa-node-js"></i> Node.js</div>
+        <div class="tech-chip"><i class="fa-brands fa-npm"></i> NPM</div>
+        <div class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</div>
+        <div class="tech-chip"><i class="fa-brands fa-github"></i> GitHub</div>
+        <div class="tech-chip"><i class="fa-solid fa-caret-up"></i> Vercel</div>
+    </div>
+</div>
+
+</div>
+            </div>
+            <div class="project-right">
+                <div class="project-right-scrollable">
+                    <div class="project-right-content">
+                        
+<div class="project-section">
+    <h2>Overview</h2>
+    <p>PaletteLab is a modern web-based color palette generation and analysis tool that helps designers, developers, and digital artists extract beautiful color palettes from images with precision. The application automatically identifies dominant colors, displays their percentage distribution, provides multiple color formats, and offers powerful customization tools such as locked colors, palette regeneration, gradient generation, accessibility analysis, and export options, making color exploration both efficient and intuitive.</p>
+</div>
+
+<div class="project-section">
+    <h2>The Problem</h2>
+    <p>Finding the perfect color palette from an image often requires switching between multiple tools or manually identifying colors, which is time-consuming and inefficient. Many existing palette generators provide only basic color extraction without offering detailed color analysis, accessibility information, customization options, or flexible export capabilities. This makes it difficult for designers and developers to create consistent and accessible color systems for real-world projects.</p>
+</div>
+
+<div class="project-section">
+    <h2>The Solution</h2>
+    <p>PaletteLab simplifies the entire color extraction workflow by providing an all-in-one platform that automatically generates intelligent color palettes from uploaded images. Users can lock preferred colors while regenerating the remaining palette, view accurate color percentages, analyze accessibility, convert between multiple color formats, generate gradients, and export palettes for use in design and development projects. The application combines speed, accuracy, and an elegant user experience into a single responsive interface.</p>
+</div>
+
+<div class="project-section">
+    <h2>Key Features</h2>
+    <p>
+        • AI-inspired dominant color extraction from uploaded images.<br>
+        • Real-time color percentage analysis for each extracted color.<br>
+        • Automatic generation of beautiful and balanced color palettes.<br>
+        • Color locking while regenerating remaining palette colors.<br>
+        • Accurate color percentage analysis for each extracted color.<br>
+        • Support for HEX, RGB, HSL, and CSS color formats.<br>
+        • Gradient generator using selected palette colors.<br>
+        • Color accessibility and contrast checking.<br>
+        • One-click copy and export functionality.<br>
+        • Responsive interface optimized for desktop and mobile devices.<br>
+        • Smooth animations and modern user experience.<br>
+    </p>
+</div>
+
+<div class="project-section">
+    <h2>Development Process</h2>
+    <p>PaletteLab was developed as a modern frontend application with a focus on performance, usability, and clean architecture. The project was built using React.js and Vite to deliver a fast development workflow and highly responsive interface. Advanced image processing techniques were implemented to accurately analyze uploaded images and extract dominant colors. Throughout development, significant attention was given to component reusability, responsive layouts, efficient state management, and creating a visually appealing user experience with smooth animations and intuitive interactions.</p>
+</div>
+
+<div class="project-section">
+    <h2>Challenges</h2>
+    <p>One of the most challenging aspects of the project was implementing an accurate color extraction algorithm while maintaining high performance across images of different sizes and resolutions. Another challenge was designing the locked-color regeneration system, ensuring selected colors remained unchanged while intelligently generating new complementary colors. Building accurate color percentage calculations, accessibility analysis, and maintaining a responsive user interface without sacrificing performance also required careful optimization and thoughtful application architecture.</p>
+</div>
+
+<div class="project-section">
+    <h2>What I Learned</h2>
+    <p>Developing PaletteLab significantly strengthened my frontend development skills and deepened my understanding of React.js, modern state management, component-based architecture, and responsive UI design. I gained practical experience working with image processing, color theory, accessibility standards, advanced JavaScript logic, and performance optimization. The project also improved my ability to build interactive user experiences with scalable code organization and reusable components.</p>
+</div>
+
+<div class="project-section">
+    <h2>Future Improvements</h2>
+    <p>Future versions of PaletteLab will introduce AI-powered color harmony suggestions, automatic brand palette generation, Figma and Adobe plugin integration, cloud-based palette storage, user accounts with saved collections, collaborative palette sharing, advanced image editing tools, and support for extracting colors from videos and live camera feeds. Additional features such as theme generation for web applications and design system exports will further enhance the platform for professional designers and developers.</p>
+</div>
+
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://palette-lab-color.vercel.app/" class="btn works-link-btn" style="width:100%; border-radius:30px;"><i class="fa-solid fa-share-from-square"></i> Live Demo</a>
+                    <a href="https://github.com/S-K-Roy18/PaletteLab" class="btn works-link-btn btn-outline" style="width:100%; border-radius:30px; background:transparent; border:1px solid #ff004f;"><i class="fa-brands fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="copyright works-copyright">
+        <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
+    </div>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        var navOverlay = document.getElementById("navOverlay");
+        function openmenu() {
+            sidemenu.style.right = "0";
+            navOverlay.style.display = "block";
+            setTimeout(() => { navOverlay.style.opacity = "1"; }, 10);
+            document.body.style.overflow = "hidden";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-250px";
+            navOverlay.style.opacity = "0";
+            setTimeout(() => { navOverlay.style.display = "none"; }, 300);
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollables = document.querySelectorAll('.project-right-scrollable');
+            scrollables.forEach(el => {
+                const updateScrollState = () => {
+                    const atTop = el.scrollTop <= 10;
+                    const atBottom = Math.ceil(el.scrollHeight - el.scrollTop) <= el.clientHeight + 10;
+                    
+                    el.classList.remove('is-top', 'is-middle', 'is-bottom');
+                    if (atTop && atBottom) {
+                        el.classList.add('is-top'); // Or no fade if content is small
+                    } else if (atTop) {
+                        el.classList.add('is-top');
+                    } else if (atBottom) {
+                        el.classList.add('is-bottom');
+                    } else {
+                        el.classList.add('is-middle');
+                    }
+                };
+                
+                el.addEventListener('scroll', updateScrollState);
+                window.addEventListener('resize', updateScrollState);
+                updateScrollState();
+            });
+        });
+    </script>
+</body>
+
+</html>
