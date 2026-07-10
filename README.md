@@ -45,6 +45,7 @@ Portfolio/
 ├── project-mealhub.html    # Project details: MealHub
 ├── project-medbill.html    # Project details: MedBill
 ├── project-portfolio.html  # Project details: Portfolio
+├── project-PaletteLab.html # Project details: PaletteLab
 └── README.md               # Project documentation
 ```
 
