@@ -46,6 +46,7 @@
             <nav id="navbar">
                 <img src="images/logo.png" class="logo">
                 <ul id="sidemenu">
+                    <div class="glider-container"><div class="glider"></div></div>
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
                     <li><a href="#header" class="active-nav" onclick="closemenu()">HOME</a></li>
                     <li><a href="#about" onclick="closemenu()">ABOUT</a></li>
@@ -64,7 +65,7 @@
                 Hi there, myself
             </h2>
 
-            <h1 class="name-font">
+            <h1 class="name-font" id="hero-name" style="position: relative;">
                 <span class="name-red">Surya</span> Kanta<br class="mobile-break"> Roy
             </h1>
 
@@ -730,6 +731,7 @@ locationBox.addEventListener("click", () => {
     document.addEventListener("DOMContentLoaded", function() {
         const sections = document.querySelectorAll("#header, #about, #portfolio, #contact");
         const navLinks = document.querySelectorAll("#sidemenu li a");
+        const glider = document.querySelector(".glider");
 
         function updateActiveNav() {
             let current = "";
@@ -745,13 +747,21 @@ locationBox.addEventListener("click", () => {
                 link.classList.remove("active-nav");
                 if (current && link.getAttribute("href") === `#${current}`) {
                     link.classList.add("active-nav");
+                    
+                    // Move the mobile glider to the active item
+                    if (glider && window.innerWidth <= 768) {
+                        const li = link.parentElement;
+                        glider.style.transform = `translateY(${li.offsetTop}px)`;
+                        glider.style.height = `${li.offsetHeight}px`;
+                    }
                 }
             });
         }
 
         window.addEventListener("scroll", updateActiveNav);
+        window.addEventListener("resize", updateActiveNav); // ensure glider recalculates on orientation change
         // Initialize on load
-        updateActiveNav();
+        setTimeout(updateActiveNav, 100); // slight delay to ensure DOM is fully laid out
     });
 </script>
 
@@ -801,5 +811,7 @@ locationBox.addEventListener("click", () => {
         updatePortraitClip();
     });
 </script>
+
+<script src="mesh-text.js"></script>
 </body>
 </html>

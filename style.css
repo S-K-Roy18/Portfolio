@@ -315,9 +315,7 @@ nav ul li a::after { display: none; }
     font-size: 60px;
     margin-top: 20px;
 }
-.header-text h1 span{
-    color: #ff004f;
-}
+
 
 .intro{
     font-family: "Alegreya", serif;
@@ -341,6 +339,12 @@ nav ul li a::after { display: none; }
     display: inline-block;
     transform: scale(1.60, 1.55);
     transform-origin: left center;
+}
+
+#mesh-canvas {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none; /* Crucial: prevent the padded canvas from blocking clicks on buttons below */
 }
 
 .role{
@@ -391,16 +395,48 @@ nav ul li a::after { display: none; }
     padding: 10px 0;
     max-width:420px;
     margin:0 auto;
-    /* Subtle glass outline ring */
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.10),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-        0 8px 40px rgba(0, 0, 0, 0.30);
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.30);
+    overflow: hidden; /* Crucial for clipping the rotating beam to the rounded corners */
+    display: flex;
+    justify-content: center;
+}
+
+/* The sweeping animated border effect */
+.card-gallery-wrap::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 250px; /* Increased line length */
+    height: 160%;
+    top: -30%; /* Shift up to cover corners during rotation */
+    background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+    animation: rotation_481 8000ms infinite linear; /* Slowed down from 5000ms */
+    z-index: 0;
+}
+
+/* The inner mask that blocks the middle of the beam, revealing only the border */
+.card-gallery-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 2px; /* 2px border width */
+    border-radius: 26px; /* 28px outer - 2px gap */
+    background: #000; /* Solid background to block the beam, replacing glassmorphism */
+    z-index: 0;
+}
+
+/* Ensure the gallery content sits ON TOP of the mask */
+.card-gallery-wrap > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes rotation_481 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
 }
 
 /* Tall clipping window with fade mask for peek effect */
@@ -1053,6 +1089,10 @@ nav ul .fa-square-xmark {
         background-image: none !important;
         background-color: #000;
     }
+
+    .header-text h1.name-font {
+        word-spacing: -5px;
+    }
     
     .hero-portrait-wrap {
         display: block;
@@ -1318,6 +1358,49 @@ nav ul .fa-square-xmark {
     }
 
     nav ul li a::after { display: none; }
+
+    /* ── Mobile Glider Highlight ── */
+    .glider-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .glider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #ff004f 50%, rgba(0, 0, 0, 0) 100%);
+        transition: transform 0.4s cubic-bezier(0.37, 1.95, 0.66, 0.56), height 0.4s ease;
+    }
+
+    .glider::before {
+        content: "";
+        position: absolute;
+        height: 60%;
+        width: 12px;
+        top: 50%;
+        left: -5px;
+        transform: translateY(-50%);
+        background: #ff004f;
+        filter: blur(8px);
+    }
+
+    .glider::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 120px;
+        background: linear-gradient(90deg, rgba(255, 0, 79, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+        pointer-events: none;
+    }
 
     /* ── HERO SECTION ── */
     #header{
