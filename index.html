@@ -303,7 +303,10 @@
         <!-- -------------portfolio section---------------- -->
         <div id="portfolio">
             <div class="container">
-                <h1 class="sub-title">Top Projects</h1>
+                <div class="portfolio-header">
+                    <h1 class="sub-title">Top Projects</h1>
+                    <p class="portfolio-subtitle">From concept to deployment, each project reflects my approach to building scalable and user-centric solutions.</p>
+                </div>
                 <div class="work-list">
                     <div class="work">
                         <img src="images/mealhub.png">
@@ -343,6 +346,117 @@
                                 <a href="project-medbill.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                             <p class="panel-desc">A comprehensive pharmacy management system that enables efficient medicine inventory, billing, sales monitoring, and business insights through a responsive web dashboard.</p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="images/PaletteLab.png">
+                        <div class="glass-panel">
+                            <div class="panel-header">
+                                <h3>PaletteLab</h3>
+                                <a href="project-PaletteLab.html"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                            <p class="panel-desc">A modern web-based color palette generation and analysis tool that helps designers extract beautiful color palettes from images with precision.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Coverflow Gallery for Desktop -->
+                <div class="coverflow-wrapper">
+                    <div class="coverflow-container" id="coverflow">
+                        <!-- Project 1 -->
+                        <div class="coverflow-card" data-index="0" onclick="handleCardClick(0)">
+                            <img src="images/mealhub.png" alt="MealHub">
+                            <div class="card-overlay">
+                                <div class="overlay-header">
+                                    <h3>MealHub</h3>
+                                    <div class="overlay-links">
+                                        <a href="https://github.com/S-K-Roy18/MealHub" target="_blank" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                                        <a href="https://meal-hub-gcmc.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-share-from-square"></i></a>
+                                        <a href="project-mealhub.html" title="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="tech-chips-mini">
+                                    <span>React.js</span><span>Vite</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>JWT</span>
+                                </div>
+                                <p>A smart meal management platform for shared living that simplifies meal tracking, expense management, member records, and monthly budget calculations.</p>
+                            </div>
+                            <div class="card-dim"></div>
+                        </div>
+                        <!-- Project 2 -->
+                        <div class="coverflow-card" data-index="1" onclick="handleCardClick(1)">
+                            <img src="images/FitTrack.png" alt="FitTrack">
+                            <div class="card-overlay">
+                                <div class="overlay-header">
+                                    <h3>FitTrack</h3>
+                                    <div class="overlay-links">
+                                        <a href="https://github.com/S-K-Roy18/FitTrack" target="_blank" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                                        <a href="https://fit-track-hazel.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-share-from-square"></i></a>
+                                        <a href="project-fittrack.html" title="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="tech-chips-mini">
+                                    <span>React</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Strapi CMS</span>
+                                </div>
+                                <p>A smart fitness tracking application that enables users to log workouts, monitor nutrition, track progress, and achieve their health goals through interactive analytics.</p>
+                            </div>
+                            <div class="card-dim"></div>
+                        </div>
+                        <!-- Project 3 -->
+                        <div class="coverflow-card" data-index="2" onclick="handleCardClick(2)">
+                            <img src="images/CTM.png" alt="CTM">
+                            <div class="card-overlay">
+                                <div class="overlay-header">
+                                    <h3>Collaborative Task Management</h3>
+                                    <div class="overlay-links">
+                                        <a href="https://github.com/S-K-Roy18/collaborative_task_management_app" target="_blank" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                                        <a href="#" target="_blank" title="Live Demo"><i class="fa-solid fa-share-from-square"></i></a>
+                                        <a href="project-ctm.html" title="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="tech-chips-mini">
+                                    <span>Next.js</span><span>React.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Node.js</span><span>MongoDB</span>
+                                </div>
+                                <p>An all-in-one project management solution featuring task organization, team collaboration, progress monitoring, and real-time workflow management.</p>
+                            </div>
+                            <div class="card-dim"></div>
+                        </div>
+                        <!-- Project 4 -->
+                        <div class="coverflow-card" data-index="3" onclick="handleCardClick(3)">
+                            <img src="images/Medbill.png" alt="Medbill">
+                            <div class="card-overlay">
+                                <div class="overlay-header">
+                                    <h3>Medbill</h3>
+                                    <div class="overlay-links">
+                                        <a href="https://github.com/S-K-Roy18/MedBill" target="_blank" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                                        <a href="https://med-bill-nine.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-share-from-square"></i></a>
+                                        <a href="project-medbill.html" title="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="tech-chips-mini">
+                                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+                                </div>
+                                <p>A comprehensive pharmacy management system that enables efficient medicine inventory, billing, sales monitoring, and business insights through a web dashboard.</p>
+                            </div>
+                            <div class="card-dim"></div>
+                        </div>
+                        <!-- Project 5 -->
+                        <div class="coverflow-card" data-index="4" onclick="handleCardClick(4)">
+                            <img src="images/PaletteLab.png" alt="PaletteLab">
+                            <div class="card-overlay">
+                                <div class="overlay-header">
+                                    <h3>PaletteLab</h3>
+                                    <div class="overlay-links">
+                                        <a href="https://github.com/S-K-Roy18/PaletteLab" target="_blank" title="Source Code"><i class="fa-brands fa-github"></i></a>
+                                        <a href="https://palette-lab-color.vercel.app/" target="_blank" title="Live Demo"><i class="fa-solid fa-share-from-square"></i></a>
+                                        <a href="project-PaletteLab.html" title="View Details"><i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="tech-chips-mini">
+                                    <span>React 18</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS</span><span>Canvas API</span>
+                                </div>
+                                <p>A modern web-based color palette generation and analysis tool that helps designers extract beautiful color palettes from images with precision.</p>
+                            </div>
+                            <div class="card-dim"></div>
                         </div>
                     </div>
                 </div>
@@ -819,5 +933,103 @@ locationBox.addEventListener("click", () => {
 </script>
 
 <script src="mesh-text.js"></script>
+
+<!-- 3D Coverflow Logic -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const coverflow = document.getElementById("coverflow");
+        if (!coverflow) return;
+
+        const cards = Array.from(coverflow.querySelectorAll(".coverflow-card"));
+        const n = cards.length;
+        if (n === 0) return;
+
+        let active = 0; // Start with the first item (Project 1) active
+        
+        // Configuration matching the React component defaults
+        const MAX_VISIBLE = 2;
+        const SCALE_STEP = 0.16;
+        const DEPTH = 240;
+        const gap = 8; // Reverted to 8
+        const tilt = 12;
+        const sideTilt = 8;
+
+        function updateCoverflow() {
+            cards.forEach((card, i) => {
+                let rel = i - active;
+                // Circular array logic
+                if (rel > Math.floor(n / 2)) rel -= n;
+                if (rel < -Math.floor(n / 2)) rel += n;
+
+                const ax = Math.abs(rel);
+                const visible = ax <= MAX_VISIBLE;
+                const isActive = (rel === 0);
+                
+                const sc = Math.max(0.4, 1 - ax * SCALE_STEP);
+                const tx = rel * (gap * 30);
+                const tz = -ax * DEPTH;
+                const ry = -rel * tilt;
+                const rz = rel * sideTilt;
+
+                // Apply CSS transforms
+                card.style.transform = `translate(-50%, -50%) translateX(${tx}px) translateZ(${tz}px) rotateY(${ry}deg) rotateZ(${rz}deg) scale(${sc})`;
+                
+                // Visibility & interactability
+                if (visible) {
+                    card.style.opacity = 1;
+                    card.style.pointerEvents = "auto";
+                    card.style.zIndex = n - ax; // Closer cards have higher z-index
+                } else {
+                    card.style.opacity = 0;
+                    card.style.pointerEvents = "none";
+                    card.style.zIndex = 0;
+                }
+
+                // Handle the dark overlay (dim inactive cards)
+                const dim = card.querySelector(".card-dim");
+                if (dim) {
+                    dim.style.opacity = isActive ? 0 : 0.6;
+                }
+
+                // Make overlay interactive only for the active card
+                const overlay = card.querySelector(".card-overlay");
+                if (overlay) {
+                    if (isActive) {
+                        overlay.classList.add("active");
+                    } else {
+                        overlay.classList.remove("active");
+                    }
+                }
+            });
+        }
+
+        // Expose global click handler
+        window.handleCardClick = function(index) {
+            // Only change if clicking an inactive card, otherwise let the link click through
+            if (active !== index) {
+                active = index;
+                updateCoverflow();
+            }
+        };
+
+        // Initialize
+        updateCoverflow();
+
+        // Keyboard navigation when coverflow is in view
+        window.addEventListener("keydown", (e) => {
+            // Only apply if the portfolio section is somewhat in view
+            const rect = coverflow.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                if (e.key === "ArrowRight") {
+                    active = (active + 1) % n;
+                    updateCoverflow();
+                } else if (e.key === "ArrowLeft") {
+                    active = (active - 1 + n) % n;
+                    updateCoverflow();
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
