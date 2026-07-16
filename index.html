@@ -50,7 +50,13 @@
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
                     <li><a href="#header" class="active-nav" onclick="closemenu()">HOME</a></li>
                     <li><a href="#about" onclick="closemenu()">ABOUT</a></li>
-                    <li><a href="#portfolio" onclick="closemenu()">WORK</a></li>
+                    <li class="has-submenu">
+                        <a href="#portfolio" onclick="closemenu()">WORK <i class="fa-solid fa-caret-down" style="font-size:10px; margin-left:3px;"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#portfolio" onclick="closemenu()">Work</a></li>
+                            <li><a href="Works.html">Works</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#contact" onclick="closemenu()">CONTACT</a></li>
                 </ul>
                 <div class="nav-right">
@@ -730,7 +736,7 @@ locationBox.addEventListener("click", () => {
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const sections = document.querySelectorAll("#header, #about, #portfolio, #contact");
-        const navLinks = document.querySelectorAll("#sidemenu li a");
+        const navLinks = document.querySelectorAll("#sidemenu > li > a");
         const glider = document.querySelector(".glider");
 
         function updateActiveNav() {
@@ -749,7 +755,7 @@ locationBox.addEventListener("click", () => {
                     link.classList.add("active-nav");
                     
                     // Move the mobile glider to the active item
-                    if (glider && window.innerWidth <= 768) {
+                    if (glider && window.innerWidth <= 1024) {
                         const li = link.parentElement;
                         glider.style.transform = `translateY(${li.offsetTop}px)`;
                         glider.style.height = `${li.offsetHeight}px`;

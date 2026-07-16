@@ -299,6 +299,91 @@ nav ul li a.active-nav {
         0 2px 8px rgba(0,0,0,0.25);
 }
 
+
+@media (max-width: 1024px) {
+    .submenu {
+        display: none !important;
+    }
+    .has-submenu .fa-caret-down {
+        display: none !important;
+    }
+}
+
+/* --- Submenu Styles (Desktop) --- */
+@media (min-width: 1025px) {
+    nav {
+        position: fixed; /* Nav is already fixed, but this acts as anchor for absolute child */
+    }
+    .has-submenu .submenu {
+        overflow: hidden;
+        position: absolute;
+        top: 100%; /* Just below the navbar */
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: rgba(20, 20, 32, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        height: 0; /* Hidden by default */
+        box-sizing: border-box;
+        transition: height 0.3s ease-in-out;
+        z-index: -1; /* Behind nav bottom border */
+        
+        /* Fade blur on left and right */
+        mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+        z-index: -1; /* Behind nav bottom border */
+    }
+
+    /* Invisible bridge to prevent hover loss between link and submenu */
+    .has-submenu .submenu::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 40px; 
+    }
+
+    .has-submenu:hover .submenu {
+        height: 55px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .submenu li {
+        margin: 0 15px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition-delay: 0s;
+    }
+
+    .has-submenu:hover .submenu li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s; /* Delay appearance until bar slides down */
+    }
+
+    .submenu li a {
+        display: block;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 10px;
+        transition: color 0.2s ease, text-shadow 0.2s ease;
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    .submenu li a:hover {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
 /* Remove old underline pseudo-element */
 nav ul li a::after { display: none; }
 .header-text{
