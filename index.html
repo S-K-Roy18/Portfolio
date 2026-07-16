@@ -950,7 +950,7 @@ locationBox.addEventListener("click", () => {
         const MAX_VISIBLE = 2;
         const SCALE_STEP = 0.16;
         const DEPTH = 240;
-        const gap = 8; // Reverted to 8
+        const gap = 9; // Increased from 8 to give more space
         const tilt = 12;
         const sideTilt = 8;
 
@@ -983,6 +983,13 @@ locationBox.addEventListener("click", () => {
                     card.style.opacity = 0;
                     card.style.pointerEvents = "none";
                     card.style.zIndex = 0;
+                }
+                
+                // Add active class to the card itself for the animated border
+                if (isActive) {
+                    card.classList.add("active");
+                } else {
+                    card.classList.remove("active");
                 }
 
                 // Handle the dark overlay (dim inactive cards)

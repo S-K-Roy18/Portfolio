@@ -84,7 +84,7 @@ body{
     background-image: url(images/background.png);
     background-size: cover;
     background-position: right center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; Removed to fix severe scroll lag/glitching on Chrome/Safari */
     position: relative;   /* anchor for scroll indicator */
 }
 
@@ -236,16 +236,22 @@ nav.scrolled {
     border-radius:50%;
     object-fit:cover;
     object-position:center;
-
-    padding:1px;
-    border:1px solid rgba(109,140,255,.8);
-
-    box-shadow:
-    0 0 10px rgba(109,140,255,.25),
-    inset 0 0 8px rgba(255,255,255,.1);
-    background:rgba(255,255,255,.06);
-
     display:block;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+
+    /* Creates a 2px transparent gap between image and the outer ring */
+    border: 2px solid transparent;
+    
+    /* Draws the blue ring on the very outside edge of the transparent border */
+    box-shadow:
+    0 0 0 1px rgba(109,140,255,.8),
+    0 0 10px 2px rgba(109,140,255,.25),
+    inset 0 0 8px rgba(255,255,255,.1);
+    
+    background:rgba(255,255,255,.06);
+    background-clip: padding-box; /* Prevents background from bleeding into the transparent border gap */
 }
 /* ── Desktop nav links ── */
 nav ul {
@@ -897,7 +903,7 @@ nav ul li a::after { display: none; }
 }
 /*-------------portfolio section------------------*/
 #portfolio{
-    padding: 50px 0;
+    padding: 120px 0;
 }
 .portfolio-header {
     margin-bottom: 30px;
@@ -1052,6 +1058,7 @@ nav ul li a::after { display: none; }
     top: 50%;
     width: 900px;
     height: auto;
+    padding: 2px;
     border-radius: 20px;
     overflow: hidden;
     transform-style: preserve-3d;
@@ -1059,8 +1066,21 @@ nav ul li a::after { display: none; }
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     background-color: #1a1a1a;
     cursor: pointer;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 15px 40px rgba(255, 0, 79, 0.12), 0 0 15px rgba(255, 0, 79, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.coverflow-card.active::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 400px;
+    height: 300%;
+    top: -100%;
+    left: calc(50% - 200px);
+    background: linear-gradient(90deg, transparent, #ff004f, #ff004f, #ff004f, transparent);
+    animation: rotation_481 9000ms infinite linear;
+    z-index: 0;
 }
 
 .coverflow-card img {
@@ -1071,22 +1091,27 @@ nav ul li a::after { display: none; }
     display: block;
     user-select: none;
     pointer-events: none;
+    border-radius: 18px;
+    z-index: 1;
 }
 
 .coverflow-card .card-dim {
     position: absolute;
-    inset: 0;
+    inset: 2px;
+    border-radius: 18px;
     background: #000;
     opacity: 0.6;
     transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
+    z-index: 1;
 }
 
 .coverflow-card .card-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    border-radius: 0 0 18px 18px;
     transform: translateY(100%);
     background: rgba(20, 20, 32, 0.65);
     backdrop-filter: blur(16px);
@@ -1098,6 +1123,7 @@ nav ul li a::after { display: none; }
     opacity: 0;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
     pointer-events: none;
+    z-index: 2;
 }
 
 /* Hovering on the active card shows the description overlay */
@@ -1665,7 +1691,6 @@ nav ul .fa-square-xmark {
         background-image: url(images/mobile-bg1.png);
         background-size: cover;
         background-position: center;
-        background-attachment: fixed; /* Restored fixed parallax */
     }
     .header-text {
         width: 100%;
