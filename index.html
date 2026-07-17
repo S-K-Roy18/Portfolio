@@ -35,6 +35,20 @@
         <h1 id="intro-text"></h1>
         <div id="intro-divider"></div>
         <h2 id="intro-tagline">Let's Build Something Meaningful.</h2>
+        
+        <!-- Helicopter Loader Animation -->
+        <div class="loader-container">
+            <div class="loader">
+              <span><span></span><span></span><span></span><span></span></span>
+              <div class="base">
+                <span></span>
+                <div class="face"></div>
+              </div>
+            </div>
+            <div class="longfazers">
+              <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
     </div>
 
     <div id="header">
@@ -786,6 +800,7 @@ locationBox.addEventListener("click", () => {
     const introText = document.getElementById('intro-text');
     const introTagline = document.getElementById('intro-tagline');
     const introDivider = document.getElementById('intro-divider');
+    const introLoader = document.querySelector('.loader-container');
     const greetings = ["Hello", "नमस्ते", "নমস্কার"];
     let introIndex = 0;
 
@@ -801,6 +816,7 @@ locationBox.addEventListener("click", () => {
                 // Fade in tagline and divider on the first greeting and keep them visible
                 introTagline.classList.add('fade-in');
                 introDivider.classList.add('fade-in');
+                if(introLoader) introLoader.classList.add('fade-in');
             }
             
             setTimeout(() => {
@@ -810,6 +826,7 @@ locationBox.addEventListener("click", () => {
                     // Fade out tagline and divider with the last greeting
                     introTagline.classList.remove('fade-in');
                     introDivider.classList.remove('fade-in');
+                    if(introLoader) introLoader.classList.remove('fade-in');
                 }
                 
                 setTimeout(() => {
