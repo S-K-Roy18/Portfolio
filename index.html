@@ -53,14 +53,15 @@
                     <li class="has-submenu">
                         <a href="#portfolio" onclick="closemenu()">WORK <i class="fa-solid fa-caret-down" style="font-size:10px; margin-left:3px;"></i></a>
                         <ul class="submenu">
-                            <li><a href="#portfolio" onclick="closemenu()">Work</a></li>
-                            <li><a href="works.html">Works</a></li>
+                            <li><a href="#portfolio" onclick="closemenu()">TOP-WORK</a></li>
+                            <li><a href="works.html">ALL-WORKS</a></li>
                         </ul>
                     </li>
                     <li><a href="#contact" onclick="closemenu()">CONTACT</a></li>
                 </ul>
                 <div class="nav-right">
                     <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <i class="fa-solid fa-circle-play showreel-btn" onclick="openShowreel()" title="Play Showreel"></i>
                     <img src="images/about.png" class="profile-logo">
                 </div>
             </nav>
@@ -167,6 +168,10 @@
                             <p class="tech-group-label">Core Stack</p>
                             <div class="tech-chips">
                                 <div class="tech-chip">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                                    <span>Java</span>
+                                </div>
+                                <div class="tech-chip">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js">
                                     <span>React.js</span>
                                 </div>
@@ -201,10 +206,6 @@
                                 <div class="tech-chip">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js" class="icon-invert">
                                     <span>Express.js</span>
-                                </div>
-                                <div class="tech-chip">
-                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-                                    <span>MongoDB</span>
                                 </div>
                                 <div class="tech-chip">
                                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="REST API">
@@ -1037,6 +1038,59 @@ locationBox.addEventListener("click", () => {
             }
         });
     });
-</script>
+    </script>
+
+    <!-- Showreel Modal -->
+    <div id="showreel-modal" class="showreel-modal">
+        <div class="showreel-close" onclick="closeShowreel()">
+            <i class="fa-solid fa-rectangle-xmark"></i>
+        </div>
+        <div class="showreel-content">
+            <video id="showreel-video" controls playsinline preload="metadata">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const showreelModal = document.getElementById('showreel-modal');
+        const showreelVideo = document.getElementById('showreel-video');
+
+        function openShowreel() {
+            if (window.innerWidth <= 768) {
+                showreelVideo.src = "Video/PortVideoMobile.mp4";
+            } else {
+                showreelVideo.src = "Video/PortVideo.mp4";
+            }
+            
+            showreelModal.classList.add('active');
+            document.body.classList.add('modal-open');
+            showreelVideo.currentTime = 0;
+            showreelVideo.play();
+        }
+
+        function closeShowreel() {
+            showreelModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            showreelVideo.pause();
+        }
+
+        // Close on video end
+        showreelVideo.addEventListener('ended', closeShowreel);
+
+        // Close on background click
+        showreelModal.addEventListener('click', (e) => {
+            if (e.target === showreelModal || e.target.classList.contains('showreel-content')) {
+                closeShowreel();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && showreelModal.classList.contains('active')) {
+                closeShowreel();
+            }
+        });
+    </script>
 </body>
 </html>
