@@ -4,8 +4,8 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-html{
-    scroll-behavior: smooth;
+html {
+    /* scroll-behavior is applied via JS to prevent history restore bugs */
 }
 body{
     background: #080808;

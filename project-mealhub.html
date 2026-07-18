@@ -215,8 +215,6 @@
         const greetings = ["Hello", "नमस्ते", "নমস্কার"];
         let introIndex = 0;
 
-        document.body.style.overflow = 'hidden';
-
         function animateIntro() {
             if (introIndex < greetings.length) {
                 introText.innerHTML = greetings[introIndex];
@@ -245,9 +243,9 @@
             } else {
                 introScreen.classList.add('slide-up');
                 document.body.style.overflow = 'auto';
-                setTimeout(() => {
-                    introScreen.style.display = 'none';
-                }, 800); 
+                            setTimeout(() => {
+                introScreen.style.display = 'none';
+            }, 800); 
             }
         }
 
@@ -274,11 +272,15 @@
             sessionStorage.setItem("portfolio_session_active", "true");
 
             if (shouldShowIntro) {
-                setTimeout(animateIntro, 200); 
+            document.body.style.overflow = 'hidden';
+            setTimeout(animateIntro, 200); 
             } else {
                 introScreen.style.display = 'none';
-                document.body.style.overflow = 'auto';
             }
+        // Enable smooth scrolling AFTER the browser has restored the scroll position instantly
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }, 50);
         });
     })();
 </script>

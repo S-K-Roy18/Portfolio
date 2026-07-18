@@ -805,8 +805,6 @@ locationBox.addEventListener("click", () => {
     let introIndex = 0;
 
     // Prevent scrolling during intro
-    document.body.style.overflow = 'hidden';
-
     function animateIntro() {
         if (introIndex < greetings.length) {
             introText.innerHTML = greetings[introIndex];
@@ -840,7 +838,7 @@ locationBox.addEventListener("click", () => {
             // Re-enable scrolling
             document.body.style.overflow = 'auto';
             
-            setTimeout(() => {
+                        setTimeout(() => {
                 introScreen.style.display = 'none';
             }, 800); // match CSS transition duration
         }
@@ -869,11 +867,15 @@ locationBox.addEventListener("click", () => {
         sessionStorage.setItem("portfolio_session_active", "true");
 
         if (shouldShowIntro) {
+            document.body.style.overflow = 'hidden';
             setTimeout(animateIntro, 200); 
         } else {
             introScreen.style.display = 'none';
-            document.body.style.overflow = 'auto';
         }
+        // Enable smooth scrolling AFTER the browser has restored the scroll position instantly
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }, 50);
     });
 </script>
 
