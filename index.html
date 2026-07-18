@@ -846,20 +846,42 @@ locationBox.addEventListener("click", () => {
         }
     }
 
-    // Start animation on load, but only if it hasn't been played this session (or if 24 hours have passed)
     window.addEventListener('load', () => {
-        const now = Date.now();
-        const lastPlayed = sessionStorage.getItem('introTimestamp');
-        const twentyFourHours = 24 * 60 * 60 * 1000;
+        let shouldShowIntro = true;
+        
+        // Check how the user arrived at the page using the Navigation API
+        const navEntries = performance.getEntriesByType("navigation");
+        if (navEntries.length > 0) {
+            const navType = navEntries[0].type;
+            
+            if (navType === "reload") {
+                // F5 / Refresh -> Always show intro
+                shouldShowIntro = true;
+            } else if (navType === "back_forward") {
+                // Browser Back/Forward button (e.g. returning from project page) -> Hide intro
+                shouldShowIntro = false;
+            } else {
+                // Normal navigation -> check if returning via link from our own site (e.g. works.html)
+                if (document.referrer) {
+                    try {
+                        const referrerUrl = new URL(document.referrer);
+                        if (referrerUrl.hostname === window.location.hostname) {
+                            shouldShowIntro = false;
+                        }
+                    } catch (e) {
+                        // ignore parsing errors
+                    }
+                }
+            }
+        }
 
-        if (lastPlayed && (now - parseInt(lastPlayed) < twentyFourHours)) {
-            // Skip intro: already played in this session recently
+        if (shouldShowIntro) {
+            // Play intro
+            setTimeout(animateIntro, 200); 
+        } else {
+            // Skip intro
             introScreen.style.display = 'none';
             document.body.style.overflow = 'auto';
-        } else {
-            // Play intro: first visit, new session, or 24+ hours elapsed
-            sessionStorage.setItem('introTimestamp', now.toString());
-            setTimeout(animateIntro, 200); // slight delay to ensure smooth start
         }
     });
 </script>
