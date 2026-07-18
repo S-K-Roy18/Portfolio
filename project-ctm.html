@@ -13,7 +13,28 @@
     <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="project-detail-body">
+<body class="project-detail-body">\n
+    <!-- Splash Screen Intro -->
+    <div id="intro-screen">
+        <h1 id="intro-text"></h1>
+        <div id="intro-divider"></div>
+        <h2 id="intro-tagline">Let's Build Something Meaningful.</h2>
+        
+        <!-- Helicopter Loader Animation -->
+        <div class="loader-container">
+            <div class="loader">
+              <span><span></span><span></span><span></span><span></span></span>
+              <div class="base">
+                <span></span>
+                <div class="face"></div>
+              </div>
+            </div>
+            <div class="longfazers">
+              <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
     <div id="header-works">
         <div class="container">
             <nav id="navbar">
@@ -201,6 +222,86 @@
             });
         });
     </script>
-</body>
+
+<!-- Splash Screen JS -->
+<script>
+    (function() {
+        const introScreen = document.getElementById('intro-screen');
+        if (!introScreen) return;
+        const introText = document.getElementById('intro-text');
+        const introTagline = document.getElementById('intro-tagline');
+        const introDivider = document.getElementById('intro-divider');
+        const introLoader = document.querySelector('.loader-container');
+        const greetings = ["Hello", "नमस्ते", "নমস্কার"];
+        let introIndex = 0;
+
+        document.body.style.overflow = 'hidden';
+
+        function animateIntro() {
+            if (introIndex < greetings.length) {
+                introText.innerHTML = greetings[introIndex];
+                introText.classList.add('fade-in');
+
+                if (introIndex === 0) {
+                    introTagline.classList.add('fade-in');
+                    introDivider.classList.add('fade-in');
+                    if(introLoader) introLoader.classList.add('fade-in');
+                }
+                
+                setTimeout(() => {
+                    introText.classList.remove('fade-in');
+                    
+                    if (introIndex === greetings.length - 1) {
+                        introTagline.classList.remove('fade-in');
+                        introDivider.classList.remove('fade-in');
+                        if(introLoader) introLoader.classList.remove('fade-in');
+                    }
+                    
+                    setTimeout(() => {
+                        introIndex++;
+                        animateIntro();
+                    }, 800); 
+                }, 2300); 
+            } else {
+                introScreen.classList.add('slide-up');
+                document.body.style.overflow = 'auto';
+                setTimeout(() => {
+                    introScreen.style.display = 'none';
+                }, 800); 
+            }
+        }
+
+                window.addEventListener('load', () => {
+            let shouldShowIntro = true;
+            const navEntries = performance.getEntriesByType("navigation");
+            const isInternalNav = sessionStorage.getItem("portfolio_session_active");
+
+            if (navEntries.length > 0) {
+                const navType = navEntries[0].type;
+                if (navType === "reload") {
+                    shouldShowIntro = true;
+                } else if (navType === "back_forward") {
+                    shouldShowIntro = false;
+                } else if (navType === "navigate") {
+                    if (isInternalNav) {
+                        shouldShowIntro = false;
+                    } else {
+                        shouldShowIntro = true;
+                    }
+                }
+            }
+
+            sessionStorage.setItem("portfolio_session_active", "true");
+
+            if (shouldShowIntro) {
+                setTimeout(animateIntro, 200); 
+            } else {
+                introScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    })();
+</script>
+\n</body>
 
 </html>
