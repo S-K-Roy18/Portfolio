@@ -818,6 +818,21 @@ nav ul li a::after { display: none; }
     color: #b54769;
     font-size: 15px;
 }
+.highlight-red {
+    color: #ff004f !important;
+}
+.status-pursuing {
+    color: #00d4ff !important;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+    font-weight: 600;
+    font-size: 0.9em;
+}
+.status-completed {
+    color: #00ff88 !important;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    font-weight: 600;
+    font-size: 0.9em;
+}
 .tab-contents{
     display: none;
 }
