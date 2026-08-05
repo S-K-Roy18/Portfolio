@@ -916,6 +916,24 @@ locationBox.addEventListener("click", () => {
         // Initialize on load
         setTimeout(updateActiveNav, 100); // slight delay to ensure DOM is fully laid out
     });
+
+    // Handle smooth scrolling and prevent Edge 'file://' security origin errors for hash links
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault(); // Prevents the browser from modifying the URL with the #hash, avoiding the Edge error
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    });
 </script>
 
 <!-- Portrait Clipping Script -->

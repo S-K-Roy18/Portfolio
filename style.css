@@ -2010,26 +2010,35 @@ nav ul .fa-square-xmark {
         grid-gap: 16px;
         margin-top: 24px;
     }
-    .work{
-    aspect-ratio:auto;
-}
+    .work {
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+    }
 
-.work img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-
-    display:block;
-
-    border-radius:24px;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    background:#111;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04),
-        0 15px 40px rgba(0,0,0,.35);
+    .work img {
+        width: 100%;
+        height: auto; /* Allow natural scaling */
+        object-fit: contain;
+        display: block;
+        border-radius: 24px 24px 0 0; /* Flat bottom to connect with panel */
+        border: 1px solid rgba(255,255,255,.08);
+        border-bottom: none; /* Seamless connection */
+        background: #111;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    
+    .glass-panel {
+        position: relative;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        background: rgba(30, 30, 45, 0.95); /* More solid background for readability */
+        backdrop-filter: none;
+        border-radius: 0 0 24px 24px;
+        padding: 20px;
+        border: 1px solid rgba(255,255,255,.08);
+        border-top: none;
+        box-shadow: 0 15px 40px rgba(0,0,0,.35);
     }
     .btn {
         padding: 12px 36px;
