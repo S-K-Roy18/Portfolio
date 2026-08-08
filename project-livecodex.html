@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivecodeX Project - Surya Kanta Roy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="project-detail-body">\n
+    <!-- Splash Screen Intro -->
+    <div id="intro-screen">
+        <h1 id="intro-text"></h1>
+        <div id="intro-divider"></div>
+        <h2 id="intro-tagline">Let's Build Something Meaningful.</h2>
+        
+        <!-- Helicopter Loader Animation -->
+        <div class="loader-container">
+            <div class="loader">
+              <span><span></span><span></span><span></span><span></span></span>
+              <div class="base">
+                <span></span>
+                <div class="face"></div>
+              </div>
+            </div>
+            <div class="longfazers">
+              <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="header-works">
+        <div class="container">
+            <nav id="navbar">
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="works.html">WORKS</a></li>
+                    <li><a href="#" class="active-nav">PROJECT</a></li>
+                </ul>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="images/about.png" class="profile-logo">
+                </div>
+            </nav>
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
+        </div>
+    </div>
+
+    <div class="project-page-content">
+        <div class="project-page-header">
+            <div style="margin-bottom: 20px;">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa-solid fa-circle-left"></i> <span class="back-text">Returs</span>
+                </a>
+            </div>
+            <h1 class="project-title-large">LivecodeX</h1>
+        </div>
+        
+        <div class="project-detail-container">
+            <div class="project-left">
+                <div class="project-left-img-container">
+                    <img src="images/LivecodeX.png" class="project-left-img" alt="LivecodeX">
+                </div>
+                
+                <div class="project-core-stack">
+                    <h3>Tech Stack</h3>
+                    <div class="stack-category">
+                        <h4>Frontend & UI</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-brands fa-react"></i> React.js</div>
+                            <div class="tech-chip"><i class="fa-solid fa-bolt"></i> Vite</div>
+                            <div class="tech-chip"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</div>
+                            <div class="tech-chip"><i class="fa-brands fa-css3-alt"></i> Tailwind CSS</div>
+                            <div class="tech-chip"><i class="fa-solid fa-code"></i> Monaco Editor</div>
+                            <div class="tech-chip"><i class="fa-solid fa-shield-halved"></i> Clerk Authentication</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>State & Data Fetching</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-solid fa-database"></i> TanStack Query</div>
+                            <div class="tech-chip"><i class="fa-solid fa-network-wired"></i> Axios</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Backend & Database</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-brands fa-node-js"></i> Node.js</div>
+                            <div class="tech-chip"><i class="fa-solid fa-server"></i> Express.js</div>
+                            <div class="tech-chip"><i class="fa-solid fa-database"></i> MongoDB</div>
+                            <div class="tech-chip"><i class="fa-solid fa-leaf"></i> Mongoose</div>
+                            <div class="tech-chip"><i class="fa-solid fa-video"></i> Stream Video & Chat</div>
+                            <div class="tech-chip"><i class="fa-solid fa-bolt"></i> Inngest</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Tools</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</div>
+                            <div class="tech-chip"><i class="fa-brands fa-github"></i> GitHub</div>
+                            <div class="tech-chip"><i class="fa-solid fa-code"></i> VS Code</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-right-scrollable">
+                    <div class="project-right-content">
+                        
+
+<div class="project-section">
+    <h2>Overview</h2>
+    <p>LivecodeX is a modern full-stack coding interview and collaborative programming platform designed to enable developers to write, execute, and review code together in real time. The platform combines secure authentication, live code synchronization, integrated communication, and collaborative workspaces into a seamless experience for technical interviews, pair programming, coding practice, and remote collaboration.</p>
+</div>
+
+<div class="project-section">
+    <h2>The Problem</h2>
+    <p>Technical interviews and remote coding sessions often rely on multiple disconnected tools for communication, code sharing, and collaboration. This creates delays, synchronization issues, and an inefficient interview experience. Developers also struggle to find a single platform that supports real-time collaboration, code execution, and interactive problem solving within one workspace.</p>
+</div>
+
+<div class="project-section">
+    <h2>The Solution</h2>
+    <p>LivecodeX brings the complete collaborative coding experience into a single web application. Users can create interview rooms, collaborate on code in real time, communicate seamlessly, and work together in synchronized coding sessions. The platform focuses on responsiveness, scalability, and an intuitive user experience to simplify technical interviews and collaborative software development.</p>
+</div>
+
+<div class="project-section">
+    <h2>Key Features</h2>
+    <p>
+        • Secure user authentication.<br>
+        • Real-time collaborative code editor.<br>
+        • Multi-user coding sessions.<br>
+        • Live synchronization between participants.<br>
+        • Multiple programming language support.<br>
+        • Interview room creation and management.<br>
+        • Responsive user interface.<br>
+        • Modern dashboard and workspace.<br>
+        • Fast and scalable architecture.<br>
+        • Smooth user experience.
+    </p>
+</div>
+
+<div class="project-section">
+    <h2>Development Process</h2>
+    <p>LivecodeX was developed using a modern full-stack architecture with a strong emphasis on scalability, real-time communication, and responsive design. The frontend focuses on delivering a clean and intuitive coding workspace, while the backend efficiently manages authentication, collaborative sessions, and synchronized communication. Throughout development, careful attention was given to modular architecture, maintainable code, and performance optimization to ensure a seamless collaborative experience.</p>
+</div>
+
+<div class="project-section">
+    <h2>Challenges</h2>
+    <p>One of the biggest challenges was implementing reliable real-time collaboration while ensuring low latency and consistent synchronization across multiple users. Managing concurrent code updates, maintaining application performance, handling authentication securely, and designing an intuitive collaborative interface required careful architectural planning and optimization.</p>
+</div>
+
+<div class="project-section">
+    <h2>What I Learned</h2>
+    <p>Developing LivecodeX significantly improved my understanding of real-time web applications, modern frontend architecture, backend API design, authentication, collaborative systems, and scalable application development. The project strengthened my problem-solving skills by requiring efficient synchronization logic, responsive UI design, and clean software architecture.</p>
+</div>
+
+<div class="project-section">
+    <h2>Future Improvements</h2>
+    <p>Future versions of LivecodeX will include integrated video conferencing, AI-powered interview assistance, collaborative whiteboard support, automated code evaluation, interview scheduling, session recording, collaborative debugging tools, and cloud-based workspace persistence.</p>
+</div>
+
+                    </div>
+                </div>
+                <div class="project-links">
+                    
+                    <a href="https://github.com/S-K-Roy18/LivecodeX" class="btn works-link-btn btn-outline" style="width:100%; border-radius:30px; background:transparent; border:1px solid #ff004f;"><i class="fa-brands fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="copyright works-copyright">
+        <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
+    </div>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        var navOverlay = document.getElementById("navOverlay");
+        function openmenu() {
+            sidemenu.style.right = "0";
+            navOverlay.style.display = "block";
+            setTimeout(() => { navOverlay.style.opacity = "1"; }, 10);
+            document.body.style.overflow = "hidden";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-250px";
+            navOverlay.style.opacity = "0";
+            setTimeout(() => { navOverlay.style.display = "none"; }, 300);
+            document.body.style.overflow = "auto";
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollables = document.querySelectorAll('.project-right-scrollable');
+            scrollables.forEach(el => {
+                const updateScrollState = () => {
+                    const atTop = el.scrollTop <= 10;
+                    const atBottom = Math.ceil(el.scrollHeight - el.scrollTop) <= el.clientHeight + 10;
+                    
+                    el.classList.remove('is-top', 'is-middle', 'is-bottom');
+                    if (atTop && atBottom) {
+                        el.classList.add('is-top'); // Or no fade if content is small
+                    } else if (atTop) {
+                        el.classList.add('is-top');
+                    } else if (atBottom) {
+                        el.classList.add('is-bottom');
+                    } else {
+                        el.classList.add('is-middle');
+                    }
+                };
+                
+                el.addEventListener('scroll', updateScrollState);
+                window.addEventListener('resize', updateScrollState);
+                updateScrollState();
+            });
+        });
+    </script>
+
+<!-- Splash Screen JS -->
+<script>
+    (function() {
+        const introScreen = document.getElementById('intro-screen');
+        if (!introScreen) return;
+        const introText = document.getElementById('intro-text');
+        const introTagline = document.getElementById('intro-tagline');
+        const introDivider = document.getElementById('intro-divider');
+        const introLoader = document.querySelector('.loader-container');
+        const greetings = ["Hello", "नमस्ते", "নমস্কার"];
+        let introIndex = 0;
+
+        function animateIntro() {
+            if (introIndex < greetings.length) {
+                introText.innerHTML = greetings[introIndex];
+                introText.classList.add('fade-in');
+
+                if (introIndex === 0) {
+                    introTagline.classList.add('fade-in');
+                    introDivider.classList.add('fade-in');
+                    if(introLoader) introLoader.classList.add('fade-in');
+                }
+                
+                setTimeout(() => {
+                    introText.classList.remove('fade-in');
+                    
+                    if (introIndex === greetings.length - 1) {
+                        introTagline.classList.remove('fade-in');
+                        introDivider.classList.remove('fade-in');
+                        if(introLoader) introLoader.classList.remove('fade-in');
+                    }
+                    
+                    setTimeout(() => {
+                        introIndex++;
+                        animateIntro();
+                    }, 800); 
+                }, 2300); 
+            } else {
+                introScreen.classList.add('slide-up');
+                document.body.style.overflow = 'auto';
+                            setTimeout(() => {
+                introScreen.style.display = 'none';
+            }, 800); 
+            }
+        }
+
+                window.addEventListener('load', () => {
+            let shouldShowIntro = true;
+            const navEntries = performance.getEntriesByType("navigation");
+            const isInternalNav = sessionStorage.getItem("portfolio_session_active");
+
+            if (navEntries.length > 0) {
+                const navType = navEntries[0].type;
+                if (navType === "reload") {
+                    shouldShowIntro = true;
+                } else if (navType === "back_forward") {
+                    shouldShowIntro = false;
+                } else if (navType === "navigate") {
+                    if (isInternalNav) {
+                        shouldShowIntro = false;
+                    } else {
+                        shouldShowIntro = true;
+                    }
+                }
+            }
+
+            sessionStorage.setItem("portfolio_session_active", "true");
+
+            if (shouldShowIntro) {
+            document.body.style.overflow = 'hidden';
+            setTimeout(animateIntro, 200); 
+            } else {
+                introScreen.style.display = 'none';
+            }
+        // Enable smooth scrolling AFTER the browser has restored the scroll position instantly
+        setTimeout(() => {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        }, 50);
+        });
+    })();
+</script>
+</body>
+
+</html>
