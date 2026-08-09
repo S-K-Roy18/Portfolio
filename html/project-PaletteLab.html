@@ -9,9 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="../images/favicon.png">
 </head>
 <body class="project-detail-body">
     <!-- Splash Screen Intro -->
@@ -38,16 +38,16 @@
     <div id="header-works">
         <div class="container">
             <nav id="navbar">
-                <img src="images/logo.png" class="logo">
+                <img src="../images/logo.png" class="logo">
                 <ul id="sidemenu">
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="../index.html">HOME</a></li>
                     <li><a href="works.html">WORKS</a></li>
                     <li><a href="#" class="active-nav">PROJECT</a></li>
                 </ul>
                 <div class="nav-right">
                     <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-                    <img src="images/about.png" class="profile-logo">
+                    <img src="../images/about.png" class="profile-logo">
                 </div>
             </nav>
             <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
@@ -67,7 +67,7 @@
         <div class="project-detail-container">
             <div class="project-left">
                 <div class="project-left-img-container">
-                    <img src="images/PaletteLab.png" class="project-left-img" alt="PaletteLab">
+                    <img src="../images/PaletteLab.png" class="project-left-img" alt="PaletteLab">
                 </div>
                 <div class="project-core-stack">
     <h3>Tech Stack</h3>
@@ -188,131 +188,11 @@
         <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
     </div>
 
-    <script>
-        var sidemenu = document.getElementById("sidemenu");
-        var navOverlay = document.getElementById("navOverlay");
-        function openmenu() {
-            sidemenu.style.right = "0";
-            navOverlay.style.display = "block";
-            setTimeout(() => { navOverlay.style.opacity = "1"; }, 10);
-            document.body.style.overflow = "hidden";
-        }
-        function closemenu() {
-            sidemenu.style.right = "-250px";
-            navOverlay.style.opacity = "0";
-            setTimeout(() => { navOverlay.style.display = "none"; }, 300);
-            document.body.style.overflow = "auto";
-        }
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const scrollables = document.querySelectorAll('.project-right-scrollable');
-            scrollables.forEach(el => {
-                const updateScrollState = () => {
-                    const atTop = el.scrollTop <= 10;
-                    const atBottom = Math.ceil(el.scrollHeight - el.scrollTop) <= el.clientHeight + 10;
-                    
-                    el.classList.remove('is-top', 'is-middle', 'is-bottom');
-                    if (atTop && atBottom) {
-                        el.classList.add('is-top'); // Or no fade if content is small
-                    } else if (atTop) {
-                        el.classList.add('is-top');
-                    } else if (atBottom) {
-                        el.classList.add('is-bottom');
-                    } else {
-                        el.classList.add('is-middle');
-                    }
-                };
-                
-                el.addEventListener('scroll', updateScrollState);
-                window.addEventListener('resize', updateScrollState);
-                updateScrollState();
-            });
-        });
-    </script>
-
+    
+    
 <!-- Splash Screen JS -->
-<script>
-    (function() {
-        const introScreen = document.getElementById('intro-screen');
-        if (!introScreen) return;
-        const introText = document.getElementById('intro-text');
-        const introTagline = document.getElementById('intro-tagline');
-        const introDivider = document.getElementById('intro-divider');
-        const introLoader = document.querySelector('.loader-container');
-        const greetings = ["Hello", "नमस्ते", "নমস্কার"];
-        let introIndex = 0;
-
-        function animateIntro() {
-            if (introIndex < greetings.length) {
-                introText.innerHTML = greetings[introIndex];
-                introText.classList.add('fade-in');
-
-                if (introIndex === 0) {
-                    introTagline.classList.add('fade-in');
-                    introDivider.classList.add('fade-in');
-                    if(introLoader) introLoader.classList.add('fade-in');
-                }
-                
-                setTimeout(() => {
-                    introText.classList.remove('fade-in');
-                    
-                    if (introIndex === greetings.length - 1) {
-                        introTagline.classList.remove('fade-in');
-                        introDivider.classList.remove('fade-in');
-                        if(introLoader) introLoader.classList.remove('fade-in');
-                    }
-                    
-                    setTimeout(() => {
-                        introIndex++;
-                        animateIntro();
-                    }, 800); 
-                }, 2300); 
-            } else {
-                introScreen.classList.add('slide-up');
-                document.body.style.overflow = 'auto';
-                            setTimeout(() => {
-                introScreen.style.display = 'none';
-            }, 800); 
-            }
-        }
-
-                window.addEventListener('load', () => {
-            let shouldShowIntro = true;
-            const navEntries = performance.getEntriesByType("navigation");
-            const isInternalNav = sessionStorage.getItem("portfolio_session_active");
-
-            if (navEntries.length > 0) {
-                const navType = navEntries[0].type;
-                if (navType === "reload") {
-                    shouldShowIntro = true;
-                } else if (navType === "back_forward") {
-                    shouldShowIntro = false;
-                } else if (navType === "navigate") {
-                    if (isInternalNav) {
-                        shouldShowIntro = false;
-                    } else {
-                        shouldShowIntro = true;
-                    }
-                }
-            }
-
-            sessionStorage.setItem("portfolio_session_active", "true");
-
-            if (shouldShowIntro) {
-            document.body.style.overflow = 'hidden';
-            setTimeout(animateIntro, 200); 
-            } else {
-                introScreen.style.display = 'none';
-            }
-        // Enable smooth scrolling AFTER the browser has restored the scroll position instantly
-        setTimeout(() => {
-            document.documentElement.style.scrollBehavior = 'smooth';
-        }, 50);
-        });
-    })();
-</script>
+    <script src="../js/main.js"></script>
+    <script src="../js/project.js"></script>
 </body>
 
 </html>
