@@ -33,19 +33,29 @@ A modern, highly interactive, and visually stunning personal portfolio website b
 
 ## 📂 Project Structure
 
-```
+```text
 Portfolio/
 │
-├── images/                 # All optimized images and CV PDF
-├── index.html              # Main homepage & core layout
+├── html/                   # Sub-pages and project details
+│   ├── works.html          # Dedicated portfolio/works grid
+│   ├── project-livecodex.html
+│   ├── project-ctm.html
+│   ├── project-fittrack.html
+│   ├── project-mealhub.html
+│   ├── project-medbill.html
+│   ├── project-portfolio.html
+│   └── project-PaletteLab.html
+│
+├── js/                     # Modular JavaScript files
+│   ├── main.js             # Global logic (Mobile menu, Splash intro)
+│   ├── home.js             # Home page logic (Carousels, Tabs, Effects)
+│   └── project.js          # Project-specific logic (Scroll tracking)
+│
+├── images/                 # Optimized images and CV PDF
+├── Video/                  # Video assets for Showreel
+│
+├── index.html              # Main homepage & core layout (Root)
 ├── style.css               # Global stylesheet and animations
-├── works.html              # Dedicated portfolio/works grid
-├── project-ctm.html        # Project details: CTM
-├── project-fittrack.html   # Project details: FitTrack
-├── project-mealhub.html    # Project details: MealHub
-├── project-medbill.html    # Project details: MedBill
-├── project-portfolio.html  # Project details: Portfolio
-├── project-PaletteLab.html # Project details: PaletteLab
 └── README.md               # Project documentation
 ```
 
@@ -62,6 +72,9 @@ An end-to-end medicine billing and pharmacy management system.
 
 ### 📊 CTM
 An all-in-one project management solution featuring task organization, team collaboration, progress monitoring, calender view for deadline reminder and real-time workflow management.
+
+### 💻 LivecodeX
+A real-time collaborative code editor with integrated video calling and chat, built with React, Clerk, and Stream.
 
 
 
