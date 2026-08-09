@@ -54,6 +54,7 @@ Portfolio/
 ├── images/                 # Optimized images and CV PDF
 ├── Video/                  # Video assets for Showreel
 │
+├── mesh-text.js            # External mesh text animation library
 ├── index.html              # Main homepage & core layout (Root)
 ├── style.css               # Global stylesheet and animations
 └── README.md               # Project documentation
