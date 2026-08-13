@@ -74,7 +74,7 @@ function closemenu() {
             document.body.style.overflow = 'auto';
             setTimeout(() => {
                 introScreen.style.display = 'none';
-            }, 800); 
+            }, 2000); 
         }
     }
 

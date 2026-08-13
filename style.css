@@ -4,9 +4,6 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-html {
-    /* scroll-behavior is applied via JS to prevent history restore bugs */
-}
 body{
     background: #080808;
     color: #fff;
@@ -27,10 +24,18 @@ body{
     gap: 20px;
     align-items: center;
     justify-content: center;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    border-bottom: 2px solid transparent;
+    box-shadow: 0 10px 40px transparent;
+    transition: transform 2.5s cubic-bezier(0.77, 0, 0.175, 1), border-radius 2.5s cubic-bezier(0.77, 0, 0.175, 1), border-bottom-color 2.5s ease, box-shadow 2.5s ease;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #intro-screen.slide-up {
-    transform: translateY(-100%);
+    transform: translateY(-100vh);
+    border-bottom-left-radius: 80vw 35vh;
+    border-bottom-right-radius: 80vw 35vh;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.2);
 }
 #intro-text {
     color: rgba(255, 255, 255, 0.72);
