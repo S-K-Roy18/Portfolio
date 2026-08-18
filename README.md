@@ -2,6 +2,10 @@
 
 A modern, highly interactive, and visually stunning personal portfolio website built to showcase my skills, projects, and journey as a Full Stack Developer. Designed with attention to detail, smooth animations, and a premium aesthetic.
 
+<p align="center">
+  <img src="./images/portfolio.png" alt="Portfolio Banner"/>
+</p>
+
 ## 🚀 Live Demo
 
 *([suryakantaroy.vercel.app](https://suryakantaroy.vercel.app/))*
