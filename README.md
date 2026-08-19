@@ -72,14 +72,14 @@ A smart mess management platform that simplifies meal tracking, expenses, and bu
 ### 🏋️ FitTrack
 A fitness tracking application for monitoring workouts and healthy lifestyle activities.
 
-### 💊 MedBill
-An end-to-end medicine billing and pharmacy management system.
-
 ### 📊 CTM
 An all-in-one project management solution featuring task organization, team collaboration, progress monitoring, calender view for deadline reminder and real-time workflow management.
 
 ### 💻 LivecodeX
 A real-time collaborative code editor with integrated video calling and chat, built with React, Clerk, and Stream.
+
+### 🎨 PaletteLab
+A modern web-based color palette generation and analysis tool that helps designers extract beautiful color palettes from images with precision.
 
 
 
