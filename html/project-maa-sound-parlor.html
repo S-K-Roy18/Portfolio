@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maa Sound Parlor Project - Surya Kanta Roy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Risque&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/d3ead3973a.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+<body class="project-detail-body">
+    <!-- Splash Screen Intro -->
+    <div id="intro-screen">
+        <h1 id="intro-text"></h1>
+        <div id="intro-divider"></div>
+        <h2 id="intro-tagline">Let's Build Something Meaningful.</h2>
+        
+        <!-- Helicopter Loader Animation -->
+        <div class="loader-container">
+            <div class="loader">
+              <span><span></span><span></span><span></span><span></span></span>
+              <div class="base">
+                <span></span>
+                <div class="face"></div>
+              </div>
+            </div>
+            <div class="longfazers">
+              <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="header-works">
+        <div class="container">
+            <nav id="navbar">
+                <img src="../images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="works.html">WORKS</a></li>
+                    <li><a href="#" class="active-nav">PROJECT</a></li>
+                </ul>
+                <div class="nav-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <img src="../images/about.png" class="profile-logo">
+                </div>
+            </nav>
+            <div class="nav-overlay" id="navOverlay" onclick="closemenu()"></div>
+        </div>
+    </div>
+
+    <div class="project-page-content">
+        <div class="project-page-header">
+            <div style="margin-bottom: 20px;">
+                <a href="javascript:history.back()" class="back-btn">
+                    <i class="fa-solid fa-circle-left"></i> <span class="back-text">Return</span>
+                </a>
+            </div>
+            <h1 class="project-title-large">Maa Sound Parlor</h1>
+        </div>
+        
+        <div class="project-detail-container">
+            <div class="project-left">
+                <div class="project-left-img-container">
+                    <img src="../images/Maa-sound-parlor.png" class="project-left-img" alt="Maa Sound Parlor">
+                </div>
+                <div class="project-core-stack">
+                    <h3>Tech Stack</h3>
+                    <div class="stack-category">
+                        <h4>Frontend</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-solid fa-n"></i> Next.js 16</div>
+                            <div class="tech-chip"><i class="fa-brands fa-react"></i> React</div>
+                            <div class="tech-chip"><i class="fa-solid fa-code"></i> TypeScript</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Styling &amp; UI</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-solid fa-wind"></i> Tailwind CSS v4</div>
+                            <div class="tech-chip"><i class="fa-solid fa-icons"></i> Lucide React</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Animation</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-solid fa-wand-magic-sparkles"></i> Framer Motion</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Backend &amp; Database</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-solid fa-cloud"></i> Supabase</div>
+                            <div class="tech-chip"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+                            <div class="tech-chip"><i class="fa-solid fa-bolt"></i> Realtime</div>
+                        </div>
+                    </div>
+                    <div class="stack-category">
+                        <h4>Media</h4>
+                        <div class="stack-chips">
+                            <div class="tech-chip"><i class="fa-brands fa-youtube"></i> React YouTube</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-right">
+                <div class="project-right-scrollable">
+                    <div class="project-right-content">
+                        <div class="project-section">
+                            <h2>Overview</h2>
+                            <p>Maa Sound Parlor is a modern devotional and spiritual web platform designed to provide an immersive experience for exploring devotional music, videos, and spiritual content through a clean and interactive interface.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>The Problem</h2>
+                            <p>Devotional audio and video content is often scattered across different platforms, making it difficult for users to discover and enjoy meaningful spiritual content in one focused environment. A dedicated platform can provide a simpler, more immersive, and organized experience.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>The Solution</h2>
+                            <p>Maa Sound Parlor brings devotional content together in a modern web experience with interactive navigation, media integration, smooth animations, and a responsive interface that makes spiritual content easy and enjoyable to explore across devices.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Key Features</h2>
+                            <p>&bull; Immersive devotional interface.<br>&bull; Audio and video content integration.<br>&bull; YouTube media integration.<br>&bull; Smooth animations and transitions.<br>&bull; Responsive design.<br>&bull; Real-time data capabilities.<br>&bull; Modern and intuitive navigation.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Development Process</h2>
+                            <p>Built using Next.js 16 and TypeScript with a modern component-based architecture. Tailwind CSS v4 was used for responsive styling, while Framer Motion provides smooth animations and transitions. Supabase handles database and realtime functionality, and React YouTube integrates video content.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Challenges</h2>
+                            <p>One of the main challenges was creating an immersive devotional experience while keeping the interface simple and responsive. Integrating media content, realtime data, smooth animations, and responsive layouts required careful planning to maintain both performance and usability.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>What I Learned</h2>
+                            <p>This project strengthened my understanding of Next.js App Router, TypeScript, Supabase, realtime data, responsive UI development, media integration, and animation-driven user experiences. It also improved my ability to combine technical functionality with a strong visual and interactive design.</p>
+                        </div>
+                        <div class="project-section">
+                            <h2>Future Improvements</h2>
+                            <p>Future versions could include personalized devotional collections, improved content discovery, additional realtime features, notifications, user preferences, and a dedicated mobile application.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://maa-sound-parlor.vercel.app" class="btn works-link-btn" style="width:100%; border-radius:30px;"><i class="fa-solid fa-share-from-square"></i> Live Demo</a>
+                    <a href="https://github.com/S-K-Roy18/Maa-Sound-Parlor" class="btn works-link-btn btn-outline" style="width:100%; border-radius:30px; background:transparent; border:1px solid #ff004f;"><i class="fa-brands fa-github"></i> Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="copyright works-copyright">
+        <p>Copyright © 2026. Made with <i class="fa-regular fa-heart"></i> by Surya.</p>
+    </div>
+
+    
+    <!-- Splash Screen JS -->
+    <script src="../js/main.js"></script>
+    <script src="../js/project.js"></script>
+</body>
+
+</html>
