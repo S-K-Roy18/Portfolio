@@ -3045,25 +3045,76 @@ body.modal-open {
     width: 100vw;
     height: 100vh;
     max-width: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 0;
     overflow: hidden;
     background: #000;
-    transform: scale(0.95);
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.showreel-modal.active .showreel-content {
-    transform: scale(1);
 }
 
 .showreel-content video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ensures video covers the full screen without letterboxing */
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     background: #000;
     outline: none;
-    transform: translateZ(0); /* Forces hardware acceleration for smooth playback */
-    will-change: transform;
+}
+
+.showreel-status {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 100001;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: calc(100vw - 32px);
+    padding: 11px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.92);
+    background: rgba(8, 8, 12, 0.88);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.showreel-status.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.showreel-status.error {
+    color: #ffb8c8;
+}
+
+.showreel-spinner {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: showreel-spin 0.8s linear infinite;
+}
+
+.showreel-status.error .showreel-spinner {
+    display: none;
+}
+
+@keyframes showreel-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Showreel Mobile Responsive */

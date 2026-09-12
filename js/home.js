@@ -393,19 +393,48 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ── Showreel Modal ── */
 const showreelModal = document.getElementById('showreel-modal');
 const showreelVideo = document.getElementById('showreel-video');
+const showreelStatus = document.getElementById('showreel-status');
+const showreelStatusMessage = showreelStatus?.querySelector('.showreel-status-message');
+let showreelStatusShownAt = 0;
+let showreelStatusHideTimer;
+
+function showShowreelStatus(message, isError = false) {
+    if (!showreelStatus || !showreelStatusMessage) return;
+    clearTimeout(showreelStatusHideTimer);
+    showreelStatusShownAt = Date.now();
+    showreelStatusMessage.textContent = message;
+    showreelStatus.classList.toggle('error', isError);
+    showreelStatus.classList.add('visible');
+    showreelStatus.setAttribute('aria-hidden', 'false');
+}
+
+function hideShowreelStatus(force = false) {
+    if (!showreelStatus) return;
+    if (!force) {
+        const remainingTime = Math.max(0, 3000 - (Date.now() - showreelStatusShownAt));
+        if (remainingTime > 0) {
+            showreelStatusHideTimer = setTimeout(hideShowreelStatus, remainingTime);
+            return;
+        }
+    }
+    showreelStatus.classList.remove('visible');
+    showreelStatus.setAttribute('aria-hidden', 'true');
+}
 
 function openShowreel() {
     if(!showreelModal || !showreelVideo) return;
-    if (window.innerWidth <= 768) {
-        showreelVideo.src = "Video/PortVideoMobile.mp4";
-    } else {
-        showreelVideo.src = "Video/PortVideo.mp4";
-    }
+    showreelVideo.src = window.matchMedia('(orientation: portrait)').matches
+        ? "Video/Surya portfolio(1920x1020) mobile.mp4"
+        : "Video/Surya portfolio(1920x1020).mp4";
+    showShowreelStatus('Wait to start, it may take a few seconds…');
     
     showreelModal.classList.add('active');
     document.body.classList.add('modal-open');
     showreelVideo.currentTime = 0;
-    showreelVideo.play();
+
+    showreelVideo.play().catch(() => {
+        showShowreelStatus('Unable to load video. Please try again.', true);
+    });
 }
 
 function closeShowreel() {
@@ -413,9 +442,15 @@ function closeShowreel() {
     showreelModal.classList.remove('active');
     document.body.classList.remove('modal-open');
     showreelVideo.pause();
+    clearTimeout(showreelStatusHideTimer);
+    hideShowreelStatus(true);
 }
 
 if(showreelVideo && showreelModal) {
+    showreelVideo.addEventListener('playing', hideShowreelStatus);
+    showreelVideo.addEventListener('error', () => {
+        showShowreelStatus('Unable to load video. Please try again.', true);
+    });
     showreelVideo.addEventListener('ended', closeShowreel);
     showreelModal.addEventListener('click', (e) => {
         if (e.target === showreelModal || e.target.classList.contains('showreel-content')) {
