@@ -149,8 +149,15 @@ function closemenu() {
                 </video>
             </div>
             <div id="showreel-status" class="showreel-status" role="status" aria-live="polite" aria-hidden="true">
-                <span class="showreel-spinner" aria-hidden="true"></span>
-                <span class="showreel-status-message">Wait to start, it may take a few seconds...</span>
+                <div id="container">
+                    <label class="loading-title">Loading ...</label>
+                    <span class="loading-circle sp1">
+                        <span class="loading-circle sp2">
+                            <span class="loading-circle sp3"></span>
+                        </span>
+                    </span>
+                </div>
+                <span class="showreel-status-message">Unable to load video. Please try again.</span>
             </div>`;
         document.body.appendChild(showreelModal);
     }
@@ -159,28 +166,17 @@ function closemenu() {
     const showreelStatus = showreelModal.querySelector('#showreel-status');
     const showreelStatusMessage = showreelStatus?.querySelector('.showreel-status-message');
     const showreelClose = showreelModal.querySelector('.showreel-close');
-    let showreelStatusShownAt = 0;
-    let showreelStatusHideTimer;
 
     function showShowreelStatus(message, isError = false) {
         if (!showreelStatus || !showreelStatusMessage) return;
-        clearTimeout(showreelStatusHideTimer);
-        showreelStatusShownAt = Date.now();
         showreelStatusMessage.textContent = message;
         showreelStatus.classList.toggle('error', isError);
         showreelStatus.classList.add('visible');
         showreelStatus.setAttribute('aria-hidden', 'false');
     }
 
-    function hideShowreelStatus(force = false) {
+    function hideShowreelStatus() {
         if (!showreelStatus) return;
-        if (!force) {
-            const remainingTime = Math.max(0, 3000 - (Date.now() - showreelStatusShownAt));
-            if (remainingTime > 0) {
-                showreelStatusHideTimer = setTimeout(hideShowreelStatus, remainingTime);
-                return;
-            }
-        }
         showreelStatus.classList.remove('visible');
         showreelStatus.setAttribute('aria-hidden', 'true');
     }
@@ -191,7 +187,7 @@ function closemenu() {
         showreelVideo.src = window.matchMedia('(orientation: portrait)').matches
             ? `${videoRoot}Surya portfolio(1920x1020) mobile.mp4`
             : `${videoRoot}Surya portfolio(1920x1020).mp4`;
-        showShowreelStatus('Wait to start, it may take a few seconds...');
+        showShowreelStatus('');
         showreelModal.classList.add('active');
         document.body.classList.add('modal-open');
         showreelVideo.currentTime = 0;
@@ -205,11 +201,20 @@ function closemenu() {
         showreelModal.classList.remove('active');
         document.body.classList.remove('modal-open');
         showreelVideo.pause();
-        clearTimeout(showreelStatusHideTimer);
-        hideShowreelStatus(true);
+        hideShowreelStatus();
     };
 
     showreelVideo.addEventListener('playing', hideShowreelStatus);
+    showreelVideo.addEventListener('waiting', () => {
+        if (showreelModal.classList.contains('active')) {
+            showShowreelStatus('');
+        }
+    });
+    showreelVideo.addEventListener('stalled', () => {
+        if (showreelModal.classList.contains('active')) {
+            showShowreelStatus('');
+        }
+    });
     showreelVideo.addEventListener('error', () => {
         showShowreelStatus('Unable to load video. Please try again.', true);
     });
@@ -227,8 +232,34 @@ function closemenu() {
         }
     });
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && showreelModal.classList.contains('active')) {
+        if (!showreelModal.classList.contains('active')) return;
+
+        if (event.key === 'Escape') {
+            event.preventDefault();
             window.closeShowreel();
+            return;
+        }
+
+        if (event.code === 'Space') {
+            event.preventDefault();
+            if (showreelVideo.paused) {
+                showreelVideo.play().catch(() => {
+                    showShowreelStatus('Unable to load video. Please try again.', true);
+                });
+            } else {
+                showreelVideo.pause();
+            }
+            return;
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            const seekAmount = event.key === 'ArrowRight' ? 10 : -10;
+            const duration = Number.isFinite(showreelVideo.duration) ? showreelVideo.duration : Infinity;
+            showreelVideo.currentTime = Math.min(
+                Math.max(showreelVideo.currentTime + seekAmount, 0),
+                duration
+            );
         }
     });
 })();
